@@ -34,11 +34,11 @@
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
   
-     <audio id="audio" src="bgmusic/a.mp3" autoplay loop width="2" height="0"> </audio >
+     <audio id="audio" src="bgmusic/a.mp3" autoplay loop width="2" height="0"> </audio>
 <script>
     
 var aud = document.getElementById("audio");  
- var STORAGE_KEY_SONG = "mute";
+var STORAGE_KEY_SONG = "mute";
 
  var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
     if (muteJSON)
@@ -47,7 +47,6 @@ var aud = document.getElementById("audio");
         if(muteCond.cond == true){
             
             aud.muted = true;
-           
            
         }
                 
