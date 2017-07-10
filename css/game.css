@@ -36,3 +36,22 @@
     border-bottom-color: ;
     
 }
+
+.box {
+  position:relative;
+  opacity:0.3;
+  margin-top:40px;
+}
+
+.transform {
+  -webkit-transition: all 1s ease;  
+  -moz-transition: all 1s ease;  
+  -o-transition: all 1s ease;  
+  -ms-transition: all 1s ease;  
+  transition: all 1s ease;
+}
+
+.transform-active {
+  
+  width: 50px;
+}

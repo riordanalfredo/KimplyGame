@@ -14,7 +14,7 @@ var currentColor = 0;
 var index = [];
 var timer = 1000;
 var colorVault = [];
-var iterations = 9;
+var iterations = 10;
 
 
 //Global varible for randomChoices
@@ -32,7 +32,7 @@ var randomCard = Math.round(Math.random()*4);
 
 function switchColor() {    
             
-            var randomColorIndex =  Math.round(Math.random() * 4);
+            var randomColorIndex =  Math.round(Math.random() * 9);
         
             index.push(randomColorIndex);
             randomColorIndex = checkerFunction(randomColorIndex);
@@ -110,20 +110,19 @@ function checkerFunction(random){
     
     
 function randomChoices(){
-    
+			var primeNumber = 12582917;
             answera.innerHTML = "";
             answerb.innerHTML = "";
             answerc.innerHTML = "";
             answerd.innerHTML = "";
     
-            var random1 = Math.round(Math.random()*iterations);
-            var random2 = Math.ceil(Math.random()*iterations);
-            var random3 = Math.round(Math.random()*iterations);
-            var random4 = Math.ceil(Math.random()*iterations);
+            var random1 = Math.round(Math.random()*primeNumber)%iterations;
+            var random2 = Math.round((Math.random()*primeNumber)%iterations);
+            var random3 = Math.round(Math.random()*primeNumber)%iterations;
+            var random4 = Math.round((Math.random()*primeNumber)%iterations);
     
             if (random1 == random2 | random1 == random3 | random1 == random4 | random2 == random4 | random2 == random3 | random3 == random4)
                 {
-                
                     randomChoices();
                 }
             else
@@ -138,7 +137,7 @@ function randomChoices(){
                             answerd.innerHTML = colors[random4];    
             
                          } 
-                    else {
+					     else {
                 
                             randomChoices();
                 
@@ -178,7 +177,7 @@ function randomChoices(){
             
 // -------------------------------------------------------------------------------------------------------------------------//
 // -------------------------------------------------- Timer CountDown ------------------------------------------------------//
-var TotalSeconds    = 5;
+var TotalSeconds    = 10;
 var timeElement = document.getElementById('time');
 timeElement.innerHTML = TotalSeconds;
 var anjay = 0;
@@ -235,6 +234,15 @@ function timerCountdown(){
             width: progresBarWidth + 'px'
     }, 1000);
     
+	if(seconds < Math.round(TotalSeconds*0.5)){
+		$('#mid1').addClass('shake-constant shake-constant--hover');
+		$('#mid2').addClass('shake-constant shake-constant--hover');
+	}
+	else if(seconds >= Math.round(TotalSeconds*0.8)){
+		$('#mid1').removeClass('shake-constant shake-constant--hover');
+		$('#mid2').removeClass('shake-constant shake-constant--hover');
+	}
+	
 }
 
 
@@ -328,7 +336,7 @@ var highscore = document.getElementById("highscore");
 highscore.innerHTML = 0;
 
 
-var STORAGE_KEY = "score";
+var STORAGE_KEY = "score_hard";
 
 function saveHighscore(){
     

@@ -13,6 +13,7 @@ var colors = ["RED", "GREEN", "BLUE", "YELLOW","PURPLE"];
 var currentColor = 0;
 var index = [];
 var timer = 1000;
+var primeNumber = 12582917;
 var colorVault = [];
 
 //Global varible for randomChoices
@@ -30,7 +31,7 @@ var randomCard = Math.round(Math.random()*4);
 
 function switchColor() {    
             
-            var randomColorIndex =  Math.round(Math.random() * 4);
+            var randomColorIndex =  Math.round(Math.random() * primeNumber) % 5;
         
             index.push(randomColorIndex);
             randomColorIndex = checkerFunction(randomColorIndex);
@@ -85,7 +86,7 @@ function checkerFunction(random){
                 
                 if (index[0] == index[1])
                      {
-                        value = Math.round(Math.random() * 4);
+                        value = Math.round(Math.random() * primeNumber) % 5;
                         index = [random];
                         index.push(value);
                         value = checkerFunction(value);
@@ -117,42 +118,24 @@ function fadeout(){
     
     
 function randomChoices(){
-    
+    		
+	
             answera.innerHTML = "";
             answerb.innerHTML = "";
-            var random1 = Math.round(Math.random()*4);
-            var random2 = Math.ceil(Math.random()*4);
+            var random1 = Math.round(Math.random()*primeNumber) % 5;
+            var random2 = Math.round(Math.random()*primeNumber) % 5;
         
     
-            if (random1 == random2){
-                
-                var operatorRandom = Math.floor(Math.random() * 4 ) + 1;
-                
-                if ( random1 <= 4)
-                    {
-                        random2 = Math.abs(random2 - operatorRandom);
-    
-                    }
-                else if ( random1 == 0 )
-                    {
-                        random2 = random2 + operatorRandom;
-                    }
-                else if (random1 >= 5){
-                    
-                        randomChoices();
-                }
-                
+            while(random1 == random2){
+                random2 = Math.round(Math.random()*primeNumber) % 5;
             }    
         
     
             if( colorVault[colorVault.length - 1] == colors[random1] | colorVault[colorVault.length - 1] == colors[random2]){
-        
-                
                 answera.innerHTML = colors[random1];
                 answerb.innerHTML = colors[random2];
-               
-            
-            } else {
+            } 
+	        else {
                 
                    randomChoices();
                 
@@ -164,7 +147,7 @@ function randomChoices(){
 
 // -------------------------------------------------------------------------------------------------------------------------//
 // -------------------------------------------------- Timer CountDown ------------------------------------------------------//
-var TotalSeconds    = 5;
+var TotalSeconds    = 7;
 var timeElement = document.getElementById('time');
 timeElement.innerHTML = TotalSeconds;
 var anjay = 0;
@@ -180,14 +163,11 @@ function timeInterval(){
 
 
 var documentWidth  = $(bar).width();
-
 function timerCountdown(){
     
     var currentValue = parseInt(timeElement.innerHTML);
     if (currentValue == 0){
-        
         var total = currentValue + 0;
-        
     }
     else if (currentValue <= -1){
         
@@ -216,10 +196,19 @@ function timerCountdown(){
         seconds = TotalSeconds;
     }
     var progresBarWidth = (seconds * documentWidth / TotalSeconds);
-
+	
     $('#progress').animate({
             width: progresBarWidth + 'px'
-    }, 1000);
+    }, 700);
+	
+	if(seconds < Math.round(TotalSeconds*0.5)){
+		$('#mid1').addClass('shake-constant shake-constant--hover');
+		$('#mid2').addClass('shake-constant shake-constant--hover');
+	}
+	else if(seconds >= Math.round(TotalSeconds*0.8)){
+		$('#mid1').removeClass('shake-constant shake-constant--hover');
+		$('#mid2').removeClass('shake-constant shake-constant--hover');
+	}
     
 }
 
@@ -289,6 +278,10 @@ function wrongAnswer(){
     
     timeElement.innerHTML = total;
     
+}
+
+function myFunction(){
+	console.log("test")
 }
 
 /* Storing the HighScore */
