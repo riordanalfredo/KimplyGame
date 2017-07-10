@@ -19,6 +19,8 @@ function onDeviceReady() {
     });
     
     admob.createBannerView();
+    
+    alert("Success")
 }
 
 var isPendingInterstitial = false;
