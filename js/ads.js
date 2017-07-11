@@ -89,11 +89,6 @@ function initAds() {
       document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
     }
 
-	 function BackKeyDown()
-             {
-                 //navigator.notification.alert();
-                 navigator.app.exitApp();  // For Exit Application
-             }
         
     function onDeviceReady() {
       document.removeEventListener('deviceready', onDeviceReady, false);
@@ -107,10 +102,8 @@ function initAds() {
 		
 	  mute_audio(false);
 	 
-      document.addEventListener("backbutton", BackKeyDown, true);
 		
     }
 
-	 mute_audio(false);
     
     document.addEventListener("deviceready", onDeviceReady, false);	
