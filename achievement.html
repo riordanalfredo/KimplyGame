@@ -28,43 +28,11 @@
        
        
        <div id="achievements" style="margin-left:25px;margin-right: 20px">
-		   <ul class="demo-list-three mdl-list">
-					  <li class="mdl-list__item mdl-list__item--three-line">
-						<span class="mdl-list__item-primary-content">
-						  <img id="achv1_img" src="img/sparta.png" class="material-icons mdl-list__item-avatar">
-						  <!--<img class="icon" id="icon0" src="../content/icon/1.png" class="list-avatar" />-->
-						  <span><b>This is SPARTA!</b></span>
-						  <span class="mdl-list__item-text-body">
-						  <i>Reach score exactly 300 in any mode</i>
-						  Achieved at : <font size="-2" id="achv1" color="red"></font>
-						  </span>
-						
-						</span>
-					  </li>
-					  
-					  <li class="mdl-list__item mdl-list__item--three-line">
-						<span class="mdl-list__item-primary-content">
-						  <img id="achv2_img" src="img/shock.png" class="material-icons mdl-list__item-avatar">
-						  <!--<img class="icon" id="icon0" src="../content/icon/1.png" class="list-avatar" />-->
-						  <span><b>Shock Therapy!</b></span>
-						  <span class="mdl-list__item-text-body">
-						  <i style="font-size:12">Reach score exactly 1 point behind the highscore</i>
-						  Achieved at : <font size="-2" id="achv2" color="red"></font>
-						  </span>
-						
-						</span>
-					  </li>
-			</ul>
+		   
 		</div>
         <hr>
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
-    <script>
-	var d = new Date();
-		var tanggal = d.toUTCString();
-	document.getElementById("achv1").innerHTML = tanggal ;
-		document.getElementById("achv2").innerHTML = tanggal ;
-	
-	</script>
+	<script type="text/javascript" src="js/achievements.js"></script>
   
 </html>

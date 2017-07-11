@@ -32,10 +32,9 @@ function initAds() {
     
     function onAdLoaded(e) {
       if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-		    
         	showNextInterstitial = setTimeout(function() {
           	  admob.requestInterstitialAd();
-        	}, 1 * 60 * 1000); // 1 minutes
+        	}, 5 * 60 * 1000); // 2 minutes
       }
     }
 
@@ -89,10 +88,16 @@ function initAds() {
       document.addEventListener(admob.events.onAdLeftApplication, function (e) {});
       document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
     }
+
+	 function BackKeyDown()
+             {
+                 //navigator.notification.alert();
+                 navigator.app.exitApp();  // For Exit Application
+             }
         
     function onDeviceReady() {
       document.removeEventListener('deviceready', onDeviceReady, false);
-      initAds();
+      initAds(); 
 
       // display a banner at startup
       admob.createBannerView();
@@ -100,8 +105,12 @@ function initAds() {
       // request an interstitial
       admob.requestInterstitialAd();
 		
-	  mute_audio(false);	
+	  mute_audio(false);
+	 
+      document.addEventListener("backbutton", BackKeyDown, true);
 		
     }
+
+	 mute_audio(false);
     
     document.addEventListener("deviceready", onDeviceReady, false);	

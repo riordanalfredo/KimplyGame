@@ -26,7 +26,11 @@ var handler = [];
 
 var frontBackSelector = 1;
  $('#card').flip({trigger:'manual'});
-var randomCard = Math.round(Math.random()*4);
+var randomCard = Math.round(Math.random() * primeNumber) % 5;
+
+
+document.getElementById("mid1").src = "../" + checkExist.bonus[0];
+document.getElementById("mid2").src = "../" + checkExist.bonus[1];
 
 
 function switchColor() {    
@@ -297,29 +301,33 @@ highscore.innerHTML = 0;
 
 
 var STORAGE_KEY = "score";
-
 function saveHighscore(){
     
     // Code to save person object to Local Storage
    
     var scoreStorage = JSON.parse(localStorage.getItem(STORAGE_KEY));
     scoreStorage.current = score;
-   
     highscoreCondition(scoreStorage);
-    
     localStorage.setItem(STORAGE_KEY, JSON.stringify(scoreStorage));
     
+	
+	
     if (scoreStorage.current == scoreStorage.highest && scoreStorage.current !== 0){
         
         highscorePan = scoreStorage.highest + " <font color='red'>NEW!</font>";
+		//Achievemetns, should be refactored later on
+		if (scoreStorage.highest == 300){
+			achievement_1_sparta();
+		}
     }
     else{
-        
         highscorePan = scoreStorage.highest;
         
     }
-    
-    
+	
+	
+   
+	
 }
 // Code to restore polygon from Local Storage
 

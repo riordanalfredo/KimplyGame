@@ -26,6 +26,10 @@ var answerb = document.getElementById("answerb");
 var answerc = document.getElementById("answerc");
 var answerd = document.getElementById("answerd");
 
+document.getElementById("mid1").src = "../" + checkExist.bonus[0];
+document.getElementById("mid2").src = "../" + checkExist.bonus[1];
+
+
 var frontBackSelector = 1;
  $('#card').flip({trigger:'manual'});
 var randomCard = Math.round(Math.random()*4);
@@ -117,10 +121,11 @@ function randomChoices(){
             answerd.innerHTML = "";
     
             var random1 = Math.round(Math.random()*primeNumber)%iterations;
-            var random2 = Math.round((Math.random()*primeNumber)%iterations);
+            var random2 = Math.round(Math.random()*primeNumber)%iterations;
             var random3 = Math.round(Math.random()*primeNumber)%iterations;
-            var random4 = Math.round((Math.random()*primeNumber)%iterations);
-    
+            var random4 = Math.round(Math.random()*primeNumber)%iterations;
+    		
+			
             if (random1 == random2 | random1 == random3 | random1 == random4 | random2 == random4 | random2 == random3 | random3 == random4)
                 {
                     randomChoices();
@@ -134,7 +139,8 @@ function randomChoices(){
                             answera.innerHTML = colors[random1];
                             answerb.innerHTML = colors[random2];
                             answerc.innerHTML = colors[random3];
-                            answerd.innerHTML = colors[random4];    
+                            answerd.innerHTML = colors[random4];   
+							console.log(random1 + " and "+random2 + " and "+random3 + " and "+random4)
             
                          } 
 					     else {
@@ -352,6 +358,14 @@ function saveHighscore(){
     if (scoreStorage.current == scoreStorage.highest && scoreStorage.current !== 0){
         
         highscorePan = scoreStorage.highest + " <font color='red'>NEW!</font>";
+		//Achievemetns, should be refactored later on
+		if (scoreStorage.highest == 300){
+			achievement_1_sparta();
+		}
+		
+		if (scoreStorage.highest >= 100){
+			achievement_2_painter();
+		}
     }
     else{
         

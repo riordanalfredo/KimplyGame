@@ -79,11 +79,11 @@
             <!-- Image -->
             <div id="card" class="card">
                  <div class="front" id="front" > 
-                    <img id="mid1" src="../img/backg.png" width=180px class="box shake-slow">
+                    <img id="mid1" width=180px class="box shake-slow">
                 </div> 
                 
                 <div class="back" id="back">
-                    <img id="mid2" src="../img/backg.png" width=180px class="box shake-slow">
+                    <img id="mid2" width=180px class="box shake-slow">
                 </div> 
                   <!--<img src="img/giphy.gif" width="400px">-->
                 </div>
@@ -146,7 +146,12 @@
                      <!-- FAB button with ripple -->
                     <button onclick="location.href = ''" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
                       <i class="material-icons">replay</i>
-                    </button>  &nbsp; &nbsp; 
+                    </button>  &nbsp; &nbsp;
+                    
+                    <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+						<div class="mdl-snackbar__text"></div>
+						<button class="mdl-snackbar__action" type="button"></button>
+					</div>  
                         
                      <!-- FAB button with ripple -->
                     <button  onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" id="start">
@@ -172,7 +177,7 @@
           sound.play()
         }
     </script>    
-     
+    <script type="text/javascript" src="../js/achievements.js"></script>   
     <script type="text/javascript" src="../js/gamehard.js"></script>
     <script>
         
