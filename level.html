@@ -16,7 +16,7 @@
     </head>
     <body>
         <div style="float:left;">
-            <button onclick="location.href = 'index.html'" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
+            <button onclick="goto()" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
         </div>
         <br>
         <div align=center style="margin:auto;float:center">  
@@ -58,6 +58,10 @@ var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
     {
         localStorage.setItem(STORAGE_KEY_SONG, JSON.stringify(muteCondition));
     }    
+
+function goto(){
+            window.location = "index.html";
+        }
     
 </script>
     

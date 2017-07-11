@@ -105,5 +105,8 @@ function initAds() {
 		
     }
 
+
+
+
     
     document.addEventListener("deviceready", onDeviceReady, false);	
