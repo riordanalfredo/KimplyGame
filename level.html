@@ -34,19 +34,22 @@
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
   
-     <audio id="audio" src="bgmusic/a.mp3" autoplay loop width="2" height="0"> </audio>
+     
 <script>
-    
-var aud = document.getElementById("audio");  
+
+var audio = new Audio('bgmusic/a.mp3');
+audio.play();
+	
+  
 var STORAGE_KEY_SONG = "mute";
 
- var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
+var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
     if (muteJSON)
     {
         var muteCond = JSON.parse(muteJSON);
         if(muteCond.cond == true){
             
-            aud.muted = true;
+            audio.muted = true;
            
         }
                 

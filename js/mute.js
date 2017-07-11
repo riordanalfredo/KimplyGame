@@ -1,6 +1,18 @@
- //initial
-    var bg = document.getElementById("bg");
-    var aud = document.getElementById("audio");    
+
+		
+function mute_audio(){
+	var bg = document.getElementById("bg");
+	// Audio Parts
+	var aud = new Audio('bgmusic/a.mp3');
+		aud.addEventListener('ended', function() {
+			this.currentTime = 0;
+			this.play();
+		}, false);
+		aud.play(); 
+	    aud.volume = 0.5;
+		
+		alert("Audio is okay")	
+	  
 
     var bgStatement= "<i class='material-icons'>" + "volume_up" + "</i>";
     bg.innerHTML = bgStatement;
@@ -74,3 +86,5 @@
         var bgStatement= "<i class='material-icons'>" + volume + "</i>";
         bg.innerHTML = bgStatement;
     }
+}
+    
