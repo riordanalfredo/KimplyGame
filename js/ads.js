@@ -98,7 +98,7 @@ function initAds() {
       admob.createBannerView();
         
       // request an interstitial
-      admob.requestInterstitialAd();
+      // admob.requestInterstitialAd();
 		
 	  mute_audio(false);
 	 
