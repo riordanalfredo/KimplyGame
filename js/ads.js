@@ -34,6 +34,8 @@ function initAds() {
       if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
 		var calculate = getAdsCounter();
 		calculate = calculate % 6;
+		  
+		alert("ads counter" + calculate);
 		if(calculate == 5){
 			admob.showInterstitialAd();
         	showNextInterstitial = setTimeout(function() {
