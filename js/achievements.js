@@ -43,7 +43,7 @@ else
 	  var d = new Date();
 	  var tanggal = d.toUTCString();
 	  achievementObject.date[index] = tanggal;
-	  achievementObject.bonus[index] = "img/logo.png";
+	  achievementObject.bonus[index] = "img/sparta.png";
 	  
 	 // Store back to Local Storage
 	  var total = JSON.stringify(achievementObject);
@@ -70,7 +70,7 @@ function achievement_2_painter(){
 	  var d = new Date();
 	  var tanggal = d.toUTCString();
 	  achievementObject.date[index] = tanggal;
-	  achievementObject.bonus[index] = "img/easy.png";
+	  achievementObject.bonus[index] = "img/maestro.png";
 	  
 	 // Store back to Local Storage
 	  var total = JSON.stringify(achievementObject);
