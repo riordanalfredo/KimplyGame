@@ -32,20 +32,14 @@ function initAds() {
     
     function onAdLoaded(e) {
       if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-		var calculate = getAdsCounter();
-		calculate = calculate % 6;
-		  
-		alert("ads counter" + calculate);
-		if(calculate == 5){
-			admob.showInterstitialAd();
+		    
         	showNextInterstitial = setTimeout(function() {
-          	admob.requestInterstitialAd();
-        	}, 10 * 60 * 1000); // 15 minutes
-		}
-        
+          	  admob.requestInterstitialAd();
+        	}, 1 * 60 * 1000); // 1 minutes
       }
     }
 
+/*
 	var adsCountNumber = {
 		count = 0;
 	}
@@ -84,7 +78,7 @@ function initAds() {
 		
 	}
    
-
+*/
     
     // optional, in case respond to events
     function registerAdEvents() {
@@ -106,7 +100,7 @@ function initAds() {
       // request an interstitial
       admob.requestInterstitialAd();
 		
-	  mute_audio();	
+	  mute_audio(false);	
 		
     }
     
