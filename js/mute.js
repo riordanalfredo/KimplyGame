@@ -5,7 +5,7 @@ var bg = document.getElementById("bg");
 var muteCondition={
         cond: false,
     }
-
+var aud = new Audio('bgmusic/a.mp3');
 
 	
 function mute_audio( condition ){
