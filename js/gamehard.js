@@ -9,12 +9,37 @@ function showPage() {
   document.getElementById("myDiv").style.display = "block";
 }
 
+var primeNumber = 12582917;
 var colors = ["RED", "GREEN", "SALMON", "YELLOW","ORANGE","PINK","PURPLE","BROWN","VIOLET","INDIGO"];
+var colorBrankas = ["RED", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","BROWN","VIOLET","INDIGO","NAVY","TEAL","TURQUOISE","WHEAT","FUCHSIA","AQUA","AZURE"]
+function colourVaults(sizeColor){
+	/*
+	Will return the colors array which depends on the number of it's needed
+	*/
+	var colorsArray = [];
+
+	var randomIt = 0;
+	var counterColor = 0;
+	while(counterColor < sizeColor){
+		randomIt = Math.round(Math.random() * primeNumber) % colorBrankas.length;
+		if(colorBrankas[randomIt] in colorsArray){
+		}
+		else{
+			colorsArray.push(colorBrankas[randomIt]);
+			counterColor +=1;
+		}
+	}
+	return colorsArray;
+}
+
+
 var currentColor = 0;
 var index = [];
 var timer = 1000;
 var colorVault = [];
 var iterations = 10;
+
+var colors = colourVaults(iterations); // Call colorVaults function to get random colours
 
 
 //Global varible for randomChoices
@@ -27,7 +52,7 @@ var answerc = document.getElementById("answerc");
 var answerd = document.getElementById("answerd");
 
 document.getElementById("mid1").src = "../" + checkExist.bonus[0];
-document.getElementById("mid2").src = "../" + checkExist.bonus[1];
+document.getElementById("mid2").src = "../" + checkExist.bonus[0];
 
 
 var frontBackSelector = 1;

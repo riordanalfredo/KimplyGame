@@ -8,12 +8,38 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
 }
+var primeNumber = 12582917;
 
-var colors = ["RED", "GREEN", "BLUE", "YELLOW","PURPLE"];
+var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","BROWN","VIOLET","INDIGO","NAVY","TEAL","TURQUOISE","WHEAT","FUCHSIA","AQUA","AZURE"]
+function colourVaults(sizeColor){
+	/*
+	Will return the colors array which depends on the number of it's needed
+	*/
+	var colorsArray = [];
+
+	var randomIt = 0;
+	var counterColor = 0;
+	while(counterColor < sizeColor){
+		randomIt = Math.round(Math.random() * primeNumber) % colorBrankas.length;
+		if(colorBrankas[randomIt] in colorsArray){
+		}
+		else{
+			colorsArray.push(colorBrankas[randomIt]);
+			counterColor +=1;
+		}
+	}
+	return colorsArray;
+}
+
+var colors = colourVaults(5);
+	
+
+
+
 var currentColor = 0;
 var index = [];
 var timer = 1000;
-var primeNumber = 12582917;
+
 var colorVault = [];
 
 //Global varible for randomChoices
@@ -30,7 +56,7 @@ var randomCard = Math.round(Math.random() * primeNumber) % 5;
 
 
 document.getElementById("mid1").src = "../" + checkExist.bonus[0];
-document.getElementById("mid2").src = "../" + checkExist.bonus[1];
+document.getElementById("mid2").src = "../" + checkExist.bonus[0];
 
 
 function switchColor() {    
@@ -316,9 +342,17 @@ function saveHighscore(){
         
         highscorePan = scoreStorage.highest + " <font color='red'>NEW!</font>";
 		//Achievemetns, should be refactored later on
-		if (scoreStorage.highest == 300){
-			achievement_1_sparta();
+		
+		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+		
+		if (scoreStorage.highest >= 30 && achievementObject.unlocked[0] == false){
+			achievement_0_easy(0);
 		}
+		
+		if (scoreStorage.highest == 300 && achievementObject.unlocked[0] == false){
+			achievement_1_sparta(1);
+		}
+		
     }
     else{
         highscorePan = scoreStorage.highest;

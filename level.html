@@ -16,7 +16,7 @@
     </head>
     <body>
         <div style="float:left;">
-            <button onclick="location.href = 'index.html'" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
+            <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
         </div>
         <br>
         <div align=center style="margin:auto;float:center">  
@@ -28,9 +28,14 @@
 
                 <br>
                 <img onclick="location.href = 'levels/hard.html'" src="img/hard.png" width=175px style="float:center;">
-                <br> <br> 
-            <hr>
+                <br>  
+                <br> 
+                <button onclick="location.href = 'skins.html'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="width=450px;"> 
+                &nbsp;&nbsp;&nbsp;<i class="material-icons md-24">star</i>
+                <b style="font-size:14px"> SKINS </b> &nbsp;&nbsp;&nbsp;
+                </button><br><br><br>
         </div>
+        <hr>
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
   
@@ -49,10 +54,8 @@ var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
         var muteCond = JSON.parse(muteJSON);
         if(muteCond.cond == true){
             
-            audio.muted = true;
-           
-        }
-                
+            audio.muted = true;   
+		}
     }
     else
     {

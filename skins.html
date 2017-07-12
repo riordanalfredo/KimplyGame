@@ -1,0 +1,115 @@
+<html>
+    <head>
+    <title>Kimply</title>
+        <title>Kimply Color Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/material.min.css">
+        <script src="css/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+         
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" sizes="196x196" href="img/kimply.png" />
+        <link rel="apple-touch-icon-precomposed" href="img/kimply.png" />
+    	
+       
+       <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/game.css">
+        <link rel="stylesheet" href="css/modal.css">
+       
+       
+        <link rel="stylesheet" href="css/home.css">
+    </head>
+    <body>
+        <div style="float:left;">
+            <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
+        </div>
+        <br>
+        <div align=center style="margin:auto;float:center">  
+            <br>
+            <hr> <h4><b>KIMPLY OUTFIT</b></h4>
+            <hr> 
+            <br>
+                
+                <!-- Image -->
+            <div id="card" class="card">
+                <div class="front" id="front" > <br> <br>
+                    <img id="mid1" width=180px stlye="position:relative; margin-top:60px;">
+                </div> 
+                
+                <div class="back" id="back">
+                    <img id="mid2" width=180px stlye="position:relative; margin-top:60px;">
+                </div> 
+                  <!--<img src="img/giphy.gif" width="400px">-->
+
+            </div>
+            <br> <br>
+                     
+            <div align=center style="margin:auto">
+                      <b id="title_achievements" style="font-size:26px;color:goldenrod"></b>
+                      <br> <br>
+                      <!-- Default Slider -->
+					  <input class="mdl-slider mdl-js-slider" type="range" min="0" max="4" value="0" tabindex="0">
+            <br>
+                       
+              
+            <i id="description"></i>
+            <br> <br>
+            <div style="float:center;">          
+                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="">
+                   <b id="answera">wear</b>
+                </button>
+            </div>            
+            
+        </div>
+       <footer> Developed by &copy; Walf Redo</footer>   
+    </body>
+  
+<script src="js/achievements.js"></script>     
+<script>
+	
+
+	function titleCard(index){
+		
+		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+
+		var title = document.getElementById("title_achievements")
+		title.innerHTML = achievementObject.name[index];
+		
+		document.getElementById("mid1").src = checkExist.bonus[index];
+		document.getElementById("description").innerHTML = checkExist.description[index];
+	
+	}
+	titleCard(0);
+	
+	
+	
+	
+	
+	
+	
+
+var audio = new Audio('bgmusic/a.mp3');
+audio.play();
+	
+  
+var STORAGE_KEY_SONG = "mute";
+
+var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
+    if (muteJSON)
+    {
+        var muteCond = JSON.parse(muteJSON);
+        if(muteCond.cond == true){
+            
+            audio.muted = true;   
+		}
+    }
+    else
+    {
+        localStorage.setItem(STORAGE_KEY_SONG, JSON.stringify(muteCondition));
+    }    
+    
+</script>
+    
+   </html>
