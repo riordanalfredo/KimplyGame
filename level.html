@@ -16,11 +16,9 @@
     </head>
     <body>
         <div style="float:left;">
-<<<<<<< HEAD
+
             <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
-=======
-            <button onclick="goto()" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
->>>>>>> 23c02e0ecd3df0661538fe3cd521cd684ec18ebe
+
         </div>
         <br>
         <div align=center style="margin:auto;float:center">  
@@ -66,9 +64,6 @@ var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
         localStorage.setItem(STORAGE_KEY_SONG, JSON.stringify(muteCondition));
     }    
 
-function goto(){
-            window.location = "index.html";
-        }
     
 </script>
     

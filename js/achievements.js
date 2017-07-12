@@ -3,6 +3,7 @@
 
  var achievements = {
 	 name: [],
+	 title:[],
 	 logo: [],
 	 date: [],
 	 bonus: [],
@@ -22,6 +23,7 @@ else
 	{
 		for(var x = 0; x <= number_of_achievements; x++){
 			achievements.name.push("LOCKED");
+			achievements.title.push("Default");
 			achievements.logo.push("img/bonus/backg.png");
 			achievements.date.push("");
 			achievements.bonus.push("img/backg.png");
@@ -45,6 +47,7 @@ else
 	  // Fill the objects
       achievementObject.name[index] = "BANZAI! That was easy";
 	  achievementObject.logo[index] = "img/bonus/banzai.png";
+	  achievementObject.title[index] = "Musashi no Kimply"
 	  var d = new Date();
 	  var tanggal = d.toUTCString();
 	  achievementObject.date[index] = tanggal;
@@ -74,6 +77,7 @@ else
 	  // Fill the objects
       achievementObject.name[index] = "This is SPARTA";
 	  achievementObject.logo[index] = "img/bonus/sparta.png";
+	  achievementObject.title[index] = "King Spartaly"
 	  var d = new Date();
 	  var tanggal = d.toUTCString();
 	  achievementObject.date[index] = tanggal;
@@ -102,6 +106,7 @@ function achievement_2_painter( index ){
 	  // Fill the objects
       achievementObject.name[index] = "The Maestro";
 	  achievementObject.logo[index] = "img/bonus/painter.png";
+	  achievementObject.title[index] = "Monsieur Kimply"
 	  var d = new Date();
 	  var tanggal = d.toUTCString();
 	  achievementObject.date[index] = tanggal;

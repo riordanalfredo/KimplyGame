@@ -75,7 +75,10 @@
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 
 		var title = document.getElementById("title_achievements")
-		title.innerHTML = achievementObject.name[index];
+		title.innerHTML = achievementObject.title[index];
+		if(achievementObject.unlocked[index] == false){
+			title.innerHTML += " (LOCKED)";
+		}
 		
 		document.getElementById("mid1").src = checkExist.bonus[index];
 		document.getElementById("description").innerHTML = checkExist.description[index];
