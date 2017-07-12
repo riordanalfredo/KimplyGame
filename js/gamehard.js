@@ -11,24 +11,41 @@ function showPage() {
 
 var primeNumber = 12582917;
 var colors = ["RED", "GREEN", "SALMON", "YELLOW","ORANGE","PINK","PURPLE","BROWN","VIOLET","INDIGO"];
-var colorBrankas = ["RED", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","BROWN","VIOLET","INDIGO","NAVY","TEAL","TURQUOISE","WHEAT","FUCHSIA","AQUA","AZURE"]
+var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","CHOCOLATE","INDIGO","CORNSILK","KHAKI","NAVY","TEAL","TURQUOISE","WHEAT","SNOW","AQUA","AZURE"]
 function colourVaults(sizeColor){
 	/*
 	Will return the colors array which depends on the number of it's needed
 	*/
 	var colorsArray = [];
-
 	var randomIt = 0;
 	var counterColor = 0;
 	while(counterColor < sizeColor){
 		randomIt = Math.round(Math.random() * primeNumber) % colorBrankas.length;
-		if(colorBrankas[randomIt] in colorsArray){
-		}
-		else{
-			colorsArray.push(colorBrankas[randomIt]);
-			counterColor +=1;
-		}
-	}
+        console.log(randomIt);
+        
+        function checkerColours(){
+            var condition = true;
+                for(var x = 0; x <= sizeColor; x++){
+                    if(colorsArray[x] == colorBrankas[randomIt]){
+                        condition = false;
+                    }
+                }
+             return condition;
+            }
+    
+        if(colorsArray[0] == null){
+                colorsArray.push(colorBrankas[randomIt]);
+                counterColor +=1;
+                }
+            
+            else{
+                var cond = checkerColours();
+                if(cond == true){
+                    colorsArray.push(colorBrankas[randomIt]);
+                    counterColor +=1;
+            }
+        }
+    }
 	return colorsArray;
 }
 
