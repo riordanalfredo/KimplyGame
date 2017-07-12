@@ -34,7 +34,7 @@ function colourVaults(sizeColor){
 var colors = colourVaults(5);
 	
 
-
+console.log(colors)
 
 var currentColor = 0;
 var index = [];
@@ -55,8 +55,8 @@ var frontBackSelector = 1;
 var randomCard = Math.round(Math.random() * primeNumber) % 5;
 
 
-document.getElementById("mid1").src = "../" + checkExist.bonus[0];
-document.getElementById("mid2").src = "../" + checkExist.bonus[0];
+document.getElementById("mid1").src = "../" + checkExist.bonus[1];
+document.getElementById("mid2").src = "../" + checkExist.bonus[2];
 
 
 function switchColor() {    
@@ -346,11 +346,11 @@ function saveHighscore(){
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 		
 		if (scoreStorage.highest >= 30 && achievementObject.unlocked[0] == false){
-			achievement_0_easy(0);
+			achievement_japan(0);
 		}
 		
-		if (scoreStorage.highest == 300 && achievementObject.unlocked[0] == false){
-			achievement_1_sparta(1);
+		if (scoreStorage.highest == 300 && achievementObject.unlocked[2] == false){
+			achievement_sparta(2);
 		}
 		
     }

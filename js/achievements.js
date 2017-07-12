@@ -31,15 +31,18 @@ else
 			achievements.description.push("");
 		}
 		
+		
 		achievements.description[0] = "Reach score above 30 in easy mode";
-		achievements.description[1] = "Reach highscore exactly 300 in any mode";
-		achievements.description[2] = "Reach highscore above 100 in Normal mode";
+	    achievements.description[1] = "Reach score above 50 in Normal mode";
+		achievements.description[2] = "Reach highscore exactly 300 in any mode";
 		
 		localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));
 	}
 
+
+
  
- function achievement_0_easy(index){
+ function achievement_japan(index){
 	  
 	  // Get local storage
 	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
@@ -64,42 +67,11 @@ else
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]};
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
 	 
-	 
-	 
- }
-
- 
- function achievement_1_sparta(index){
-	  
-	  // Get local storage
-	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-	 
-	  // Fill the objects
-      achievementObject.name[index] = "This is SPARTA";
-	  achievementObject.logo[index] = "img/bonus/sparta.png";
-	  achievementObject.title[index] = "King Spartaly"
-	  var d = new Date();
-	  var tanggal = d.toUTCString();
-	  achievementObject.date[index] = tanggal;
-	  achievementObject.bonus[index] = "img/sparta.png";
-	  achievementObject.unlocked[index] = true;
-	  
-	  
-	 // Store back to Local Storage
-	  var total = JSON.stringify(achievementObject);
-      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
-	 
-  var snackbarContainer = document.querySelector('#demo-toast-example');
-  var showToastButton = document.querySelector('#demo-show-toast');
-  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]};
-  snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	 
-	 
-	 
  }
 
 
-function achievement_2_painter( index ){
+
+function achievement_painter( index ){
 	  // Get local storage
 	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 	 
@@ -125,9 +97,102 @@ function achievement_2_painter( index ){
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
 	
+}
+
+
+ 
+ function achievement_sparta(index){
+	  
+	  // Get local storage
+	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+	 
+	  // Fill the objects
+      achievementObject.name[index] = "This is SPARTA!";
+	  achievementObject.logo[index] = "img/bonus/sparta.png";
+	  achievementObject.title[index] = "King Spartaly"
+	  var d = new Date();
+	  var tanggal = d.toUTCString();
+	  achievementObject.date[index] = tanggal;
+	  achievementObject.bonus[index] = "img/sparta.png";
+	  achievementObject.unlocked[index] = true;
+	  
+	  
+	  
+	 // Store back to Local Storage
+	  var total = JSON.stringify(achievementObject);
+      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
+	 
+  var snackbarContainer = document.querySelector('#demo-toast-example');
+  var showToastButton = document.querySelector('#demo-show-toast');
+  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]};
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+	 
+	 
+	 
+ }
+
+
+function achievement_knight( index ){
+	  // Get local storage
+	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+	 
+	  // Fill the objects
+      achievementObject.name[index] = "Balance";
+	  achievementObject.logo[index] = "img/bonus/painter.png";
+	  achievementObject.title[index] = "Monsieur Kimply"
+	  var d = new Date();
+	  var tanggal = d.toUTCString();
+	  achievementObject.date[index] = tanggal;
+	  achievementObject.bonus[index] = "img/maestro.png";
+	  achievementObject.unlocked[index] = true;
+	  
+	  
+	 // Store back to Local Storage
+	  var total = JSON.stringify(achievementObject);
+      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
+	
+	//Achievments notification
+	
+  var snackbarContainer = document.querySelector('#demo-toast-example');
+  var showToastButton = document.querySelector('#demo-show-toast');
+  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+	
+}
+
+
+function achievement_usa( index ){
+	  // Get local storage
+	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+	 
+	 // Fill the objects
+      achievementObject.name[index] = "FREEDOM is real!";
+	  achievementObject.logo[index] = "img/bonus/usa.png";
+	  achievementObject.title[index] = "Kimply William"
+	  var d = new Date();
+	  var tanggal = d.toUTCString();
+	  achievementObject.date[index] = tanggal;
+	  achievementObject.bonus[index] = "img/usa.png";
+	  achievementObject.unlocked[index] = true;
+	  
+	  
+	 // Store back to Local Storage
+	  var total = JSON.stringify(achievementObject);
+      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
+	
+	//Achievments notification
+	
+  var snackbarContainer = document.querySelector('#demo-toast-example');
+  var showToastButton = document.querySelector('#demo-show-toast');
+  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+	
 	
 	
 }
+
+
+
 
 function showAchievements(){
 var achievements_id = document.getElementById("achievements");

@@ -101,12 +101,11 @@ function initAds() {
       // admob.requestInterstitialAd();
 		
 	  mute_audio(false);
+		
+	  
 	 
 		
     }
-
-
-
 
     
     document.addEventListener("deviceready", onDeviceReady, false);	

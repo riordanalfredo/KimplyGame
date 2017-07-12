@@ -384,12 +384,12 @@ function saveHighscore(){
         
         highscorePan = scoreStorage.highest + " <font color='red'>NEW!</font>";
 		//Achievemetns, should be refactored later on
-		if (scoreStorage.highest == 300){
-			achievement_1_sparta();
+		if (scoreStorage.highest == 300 && achievementObject.unlocked[2] == false){
+			achievement_sparta(2);
 		}
 		
-		if (scoreStorage.highest >= 100){
-			achievement_2_painter();
+		if (scoreStorage.highest >= 50 && achievementObject.unlocked[1] == false){
+			achievement_painter(1);
 		}
     }
     else{
