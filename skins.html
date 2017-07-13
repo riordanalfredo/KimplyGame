@@ -22,53 +22,59 @@
         <link rel="stylesheet" href="css/home.css">
     </head>
     <body>
-        <div style="float:left;">
+        <div style="float:left;margin-top: 10px">
             <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
         </div>
-        <br>
+        <br><br>
         <div align=center style="margin:auto;float:center">  
             <br>
             <hr> <h4><b>KIMPLY OUTFIT</b></h4>
             <hr> 
             <br>
                 
-                <!-- Image -->
-            <div id="card" class="card">
+    
                 <div class="front" id="front" > <br> <br>
                     <img id="mid1" width=180px stlye="position:relative; margin-top:60px;">
                 </div> 
                 
-                <div class="back" id="back">
-                    <img id="mid2" width=180px stlye="position:relative; margin-top:60px;">
-                </div> 
-                  <!--<img src="img/giphy.gif" width="400px">-->
-
-            </div>
-            <br> <br>
+            <br>
                      
-            <div align=center style="margin:auto">
+            <div align=center style="margin-left:50px; margin-right: 50px">
                       <b id="title_achievements" style="font-size:22px;color:goldenrod"></b>
                       <br> <br>
                       <!-- Default Slider -->
-					  <input class="mdl-slider mdl-js-slider" type="range" min="0" max="4" value="0" tabindex="0">
-            <br>
-                       
+                      
+                      <p style="width:300px">
+  						<input id="slide" class="mdl-slider mdl-js-slider" type="range" oninput="titleCard(this.value)" min="0" max="2" value="0">
+					  </p>
+					  
+            <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+				<div class="mdl-snackbar__text" style="text-align: center"></div>
+				<button class="mdl-snackbar__action" type="button"></button>
+			</div>                       
               
             <i id="description"></i>
             <br> <br>
-                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="">
-                   <b id="answera">wear</b>
+                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="selectSkin()">
+                   <b id="answer">wear</b>
                 </button>           
             
         </div>
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
-  
-<script src="js/achievements.js"></script>     
+    
+<script src="cordova.js"></script>  
+<script src="js/achievements.js"></script>   
+<script src="js/skins.js"></script>  
 <script>
 	
+	
+	var STORAGE_KEY_SKIN = "skins";
+	var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
 
 	function titleCard(index){
+		
+		document.getElementById("slide").value = index;
 		
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 
@@ -80,15 +86,26 @@
 		
 		document.getElementById("mid1").src = checkExist.bonus[index];
 		document.getElementById("description").innerHTML = checkExist.description[index];
-	
 	}
-	titleCard(0);
+	
+	
+	titleCard(selectedAchievement.index);
 	
 	
 	
-	
-	
-	
+    
+	function selectSkin(){
+		    
+	        var skinIndex = parseInt(document.getElementById("slide").value);
+			selectedAchievement.index = skinIndex;
+		    localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
+		
+		     var snackbarContainer = document.querySelector('#demo-toast-example');
+			  var showToastButton = document.querySelector('#demo-show-toast');
+			  var data = {message: 'Wearing ' + checkExist.title[skinIndex]};
+			  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+	}
 	
 
 var audio = new Audio('bgmusic/a.mp3');

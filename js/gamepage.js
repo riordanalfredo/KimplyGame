@@ -71,9 +71,11 @@ var frontBackSelector = 1;
  $('#card').flip({trigger:'manual'});
 var randomCard = Math.round(Math.random() * primeNumber) % 5;
 
-
-document.getElementById("mid1").src = "../" + checkExist.bonus[1];
-document.getElementById("mid2").src = "../" + checkExist.bonus[2];
+// To change the skin of the card
+var STORAGE_KEY_SKIN = "skins";
+var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
+document.getElementById("mid1").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
+document.getElementById("mid2").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
 
 
 function switchColor() {    

@@ -33,8 +33,8 @@
     function onAdLoaded(e) {
       if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
         	showNextInterstitial = setTimeout(function() {
-          	  admob.requestInterstitialAd();
-        	}, 5 * 60 * 1000); // 2 minutes
+          	    admob.requestInterstitialAd();
+        	}, 30 * 60 * 1000); // 30 minutes
       }
     }
 
@@ -49,38 +49,18 @@
       document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
     }
     
-    
-    function initializeSkins(){
-		var objectSkins = {
-			index: 0
-		}
-
-		var STORAGE_KEY_SKIN = "skins";
-		var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
-
-		if(selectedAchievement){
-			console.log("the object has been stored");
-		}else{
-			localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(objectSkins));
-		}
-		
-	}
-
+   
      
         
     function onDeviceReady() {
       document.removeEventListener('deviceready', onDeviceReady, false);
       initAds(); 
 
-      // display a banner at startup
-      admob.createBannerView();
-        
       // request an interstitial
-      // admob.requestInterstitialAd();
-	  
-	  mute_audio(false);
-	  initializeSkins();	
-		
+	  setTimeout(function() {
+          	    admob.requestInterstitialAd();
+        	}, 0.5 * 60 * 1000); // 30 seconds
+	  	
     }
 
 		

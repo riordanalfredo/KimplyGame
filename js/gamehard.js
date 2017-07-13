@@ -68,8 +68,11 @@ var answerb = document.getElementById("answerb");
 var answerc = document.getElementById("answerc");
 var answerd = document.getElementById("answerd");
 
-document.getElementById("mid1").src = "../" + checkExist.bonus[0];
-document.getElementById("mid2").src = "../" + checkExist.bonus[0];
+// To change the skin of the card
+var STORAGE_KEY_SKIN = "skins";
+var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
+document.getElementById("mid1").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
+document.getElementById("mid2").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
 
 
 var frontBackSelector = 1;

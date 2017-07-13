@@ -13,31 +13,38 @@
  
  var number_of_achievements = 2;
  
- var STORAGE_KEY_ACHIEVEMENTS = "achievements";
+var STORAGE_KEY_ACHIEVEMENTS = "achievements";
 
 var checkExist = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-if (checkExist){
+
+
+function initializeAchievements(checkExist){
+	if (checkExist){
 	console.log("all good")
-}
-else
-	{
-		for(var x = 0; x <= number_of_achievements; x++){
-			achievements.name.push("LOCKED");
-			achievements.title.push("Default");
-			achievements.logo.push("img/bonus/backg.png");
-			achievements.date.push("");
-			achievements.bonus.push("img/backg.png");
-			achievements.unlocked.push(false);
-			achievements.description.push("");
-		}
-		
-		
-		achievements.description[0] = "Reach score above 30 in easy mode";
-	    achievements.description[1] = "Reach score above 50 in Normal mode";
-		achievements.description[2] = "Reach highscore exactly 300 in any mode";
-		
-		localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));
 	}
+	else
+		{
+			for(var x = 0; x <= number_of_achievements; x++){
+				achievements.name.push("LOCKED");
+				achievements.title.push("Default");
+				achievements.logo.push("img/bonus/backg.png");
+				achievements.date.push("");
+				achievements.bonus.push("img/backg.png");
+				achievements.unlocked.push(false);
+				achievements.description.push("");
+			}
+
+
+			achievements.description[0] = "Reach score above 30 in easy mode";
+			achievements.description[1] = "Reach score above 50 in Normal mode";
+			achievements.description[2] = "Reach highscore exactly 300 in any mode";
+
+			localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));
+		}
+	
+	
+}
+
 
 
 
