@@ -20,7 +20,7 @@
           tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
           tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
           tappxShare:       0.5,
-		  isTesting:        true,
+		  isTesting:        false,
         });
 
         registerAdEvents();
@@ -60,7 +60,7 @@
       // request an interstitial
 	  setTimeout(function() {
           	    admob.requestInterstitialAd();
-        	}, 5 * 1000 *randomNumber); // random seconds between 10,20,30 seconds
+        	}, 1000 *randomNumber * 2); // random seconds between 10,20,30 seconds
 	  
 	  	
     }

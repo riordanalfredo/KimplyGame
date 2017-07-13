@@ -20,7 +20,7 @@
           tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
           tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
           tappxShare:       0.5,
-		  isTesting:        true,
+		  isTesting:        false,
         });
 
         registerAdEvents();
