@@ -49,11 +49,11 @@
       document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
     }
     
-    
-    function initializeSkins(){
-		var objectSkins = {
+	var objectSkins = {
 			index: 0
 		}
+    
+    function initializeSkins(){
 
 		var STORAGE_KEY_SKIN = "skins";
 		var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
@@ -79,10 +79,10 @@
       // admob.requestInterstitialAd();
 	  
 	  mute_audio(false);
-	  initializeSkins();	
 		
-    }
+    }	
 
+	initializeSkins();	
 		
     
     document.addEventListener("deviceready", onDeviceReady, false);	

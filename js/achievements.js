@@ -14,11 +14,10 @@
  var number_of_achievements = 2;
  
 var STORAGE_KEY_ACHIEVEMENTS = "achievements";
-
 var checkExist = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 
 
-function initializeAchievements(checkExist){
+function initializeAchievements(){
 	if (checkExist){
 	console.log("all good")
 	}
@@ -41,8 +40,6 @@ function initializeAchievements(checkExist){
 
 			localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));
 		}
-	
-	
 }
 
 
