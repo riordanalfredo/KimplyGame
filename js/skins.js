@@ -55,11 +55,13 @@
     function onDeviceReady() {
       document.removeEventListener('deviceready', onDeviceReady, false);
       initAds(); 
-
+	  
+	  var randomNumber = Math.ceil(Math.random()*3);
       // request an interstitial
 	  setTimeout(function() {
           	    admob.requestInterstitialAd();
-        	}, 0.5 * 60 * 1000); // 30 seconds
+        	}, 5 * 1000 *randomNumber); // random seconds between 10,20,30 seconds
+	  
 	  	
     }
 

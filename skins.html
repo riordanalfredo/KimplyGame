@@ -21,7 +21,7 @@
        
         <link rel="stylesheet" href="css/home.css">
     </head>
-    <body>
+    <body style="position:fixed">
         <div style="float:left;margin-top: 10px">
             <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
         </div>
@@ -29,9 +29,7 @@
         <div align=center style="margin:auto;float:center">  
             <br>
             <hr> <h4><b>KIMPLY OUTFIT</b></h4>
-            <hr> 
-            <br>
-                
+            <hr>               
     
                 <div class="front" id="front" > <br> <br>
                     <img id="mid1" width=180px stlye="position:relative; margin-top:60px;">
@@ -44,9 +42,9 @@
                       <br> <br>
                       <!-- Default Slider -->
                       
-                      <p style="width:300px">
+                      
   						<input id="slide" class="mdl-slider mdl-js-slider" type="range" oninput="titleCard(this.value)" min="0" max="2" value="0">
-					  </p>
+				
 					  
             <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
 				<div class="mdl-snackbar__text" style="text-align: center"></div>
@@ -58,7 +56,6 @@
                 <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="selectSkin()">
                    <b id="answer">wear</b>
                 </button>           
-            
         </div>
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
