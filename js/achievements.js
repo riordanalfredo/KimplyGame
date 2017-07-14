@@ -12,14 +12,14 @@
 	 secret:[],
  }
  
- var number_of_achievements = 4;
+var number_of_achievements = 4;
  
 var STORAGE_KEY_ACHIEVEMENTS = "achievements";
 var checkExist = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 
 
 function initializeAchievements(){
-	if (checkExist){
+	if (checkExist && (checkExist.name.length == number_of_achievements+1)){
 	console.log("all good")
 	}
 	else
@@ -43,7 +43,7 @@ function initializeAchievements(){
 			
 			achievements.secret[1] = "Extra time 3 seconds";
 			achievements.secret[2] = "Bonus 3 Hidden Colours";
-			achievements.secret[3] = "Wrong answer reduce by 1";
+			achievements.secret[3] = "Wrong answer penalty reduced by 1";
 			achievements.secret[4] = "SECRET";
 
 			localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));

@@ -12,6 +12,14 @@ function showPage() {
 var primeNumber = 12582917;
 var colors = ["RED", "GREEN", "SALMON", "YELLOW","ORANGE","PINK","PURPLE","BROWN","VIOLET","INDIGO"];
 var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","CHOCOLATE","INDIGO","CORNSILK","KHAKI","NAVY","TEAL","TURQUOISE","WHEAT","SNOW","AQUA","AZURE"]
+
+// Achievement painter
+if(checkExist.unlocked[2] == true){
+	colorBrankas.push("OLIVE");
+    colorBrankas.push("FUCHSIA");
+    colorBrankas.push("AQUAMARINE");
+}
+
 function colourVaults(sizeColor){
 	/*
 	Will return the colors array which depends on the number of it's needed
@@ -232,6 +240,8 @@ var TotalSeconds    = 12;
 //Achievement time walker
 if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
 	TotalSeconds += 3;
+    var clockSymbol = document.getElementById("clock")
+    clockSymbol.innerHTML= "<i class='material-icons'>alarm_add</i>";
 }
 
 
@@ -297,7 +307,7 @@ function timerCountdown(){
 		$('#mid1').addClass('shake-constant shake-constant--hover');
 		$('#mid2').addClass('shake-constant shake-constant--hover');
 	}
-	else if(seconds >= Math.round(TotalSeconds*0.8)){
+	else if(seconds >= Math.round(TotalSeconds*0.6)){
 		$('#mid1').removeClass('shake-constant shake-constant--hover');
 		$('#mid2').removeClass('shake-constant shake-constant--hover');
 	}

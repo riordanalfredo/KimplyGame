@@ -59,7 +59,7 @@
       // request an interstitial
 	  setTimeout(function() {
           	    admob.requestInterstitialAd();
-        	}, 1000 * 15); // random seconds between 10,20,30 seconds
+        	}, 1000 * 20); // random seconds between 10,20,30 seconds
 	  
 	  	
     }

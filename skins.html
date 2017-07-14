@@ -58,7 +58,7 @@
 			</div>                       
               
             <br>
-                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button" onclick="selectSkin()">
+                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" onclick="selectSkin()" style="width:125px">
                    <b id="answer">wear</b>
                 </button>           
            </div>
@@ -94,6 +94,9 @@
 		document.getElementById("mid1").src = checkExist.bonus[index];
 		document.getElementById("award").innerHTML = checkExist.secret[index];
 		document.getElementById("description").innerHTML = checkExist.description[index];
+        
+        selectedAchievement.index = index;
+        localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 	}
 	
 	

@@ -12,6 +12,15 @@ var primeNumber = 12582917;
 
 var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","CHOCOLATE","INDIGO","CORNSILK","KHAKI","NAVY","TEAL","TURQUOISE","WHEAT","SNOW","AQUA","AZURE"]
 
+//Achievements time delay
+if(checkExist.unlocked[2] == true){
+	colorBrankas.push("OLIVE");
+    colorBrankas.push("FUCHSIA");
+    colorBrankas.push("AQUAMARINE");
+}
+
+
+
 function colourVaults(sizeColor){
 	/*
 	Will return the colors array which depends on the number of it's needed
@@ -203,6 +212,9 @@ var TotalSeconds    = 7;
 //Achievements time delay
 if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
 	TotalSeconds += 3;
+    var clockSymbol = document.getElementById("clock")
+    clockSymbol.innerHTML= "<i class='material-icons'>alarm_add</i> buff";
+    
 }
 
 
