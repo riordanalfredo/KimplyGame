@@ -402,14 +402,14 @@ function saveHighscore(){
 		
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 		
-		if (scoreStorage.highest >= 1 && achievementObject.unlocked[0] == false){
+		if (scoreStorage.highest >= 30 && achievementObject.unlocked[0] == false){
 			achievement_japan(0);
 		}
-		if (scoreStorage.highest >= 1 && achievementObject.unlocked[1] == false){
+		if (scoreStorage.highest >= 50 && achievementObject.unlocked[1] == false){
 			achievement_time(1);
 		}
 		
-		if (scoreStorage.highest == 1 && achievementObject.unlocked[4] == false){
+		if (scoreStorage.highest == 300 && achievementObject.unlocked[4] == false){
 			achievement_sparta(4);
 		}
 		

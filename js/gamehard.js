@@ -427,15 +427,15 @@ function saveHighscore(){
 		
 		//Achievemetns, should be refactored later on
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-		if (scoreStorage.highest >= 1 && achievementObject.unlocked[2] == false){
+		if (scoreStorage.highest >= 30 && achievementObject.unlocked[2] == false){
 			achievement_painter(2);
 		}
 		
-		if (scoreStorage.highest >= 1 && achievementObject.unlocked[3] == false){
+		if (scoreStorage.highest >= 50 && achievementObject.unlocked[3] == false){
 			achievement_astronaut(3);
 		}
 		
-		if (scoreStorage.highest == 1 && achievementObject.unlocked[4] == false){
+		if (scoreStorage.highest == 300 && achievementObject.unlocked[4] == false){
 			achievement_sparta(4);
 		}
 		
