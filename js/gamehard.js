@@ -228,17 +228,25 @@ function randomChoices(){
             
 // -------------------------------------------------------------------------------------------------------------------------//
 // -------------------------------------------------- Timer CountDown ------------------------------------------------------//
-var TotalSeconds    = 10;
+var TotalSeconds    = 12;
+//Achievement time walker
+if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
+	TotalSeconds += 3;
+}
+
+
 var timeElement = document.getElementById('time');
 timeElement.innerHTML = TotalSeconds;
 var anjay = 0;
 var amboy = 0;
+var timeValue = 1000;
 
-timeInterval();
 
-function timeInterval(){
+timeInterval(timeValue);
+
+function timeInterval(value){
     anjay = setInterval(timerCountdown,1000);
-    amboy = setTimeout(anjay,1000);
+    amboy = setTimeout(anjay,value);
     
 }
 
@@ -363,10 +371,22 @@ function correctAnswer(){
 }
 
 function wrongAnswer(){
-        
+     //Add indicator
+    var state = "wrong";
+	
+	$('#card').addClass(state).delay(300).queue(function(){
+    $(this).removeClass(state).dequeue();
+    });
+	
+	//Achievements time delay
+	var reduceNumber = 2;
+	
+	if(checkExist.unlocked[3] == true && parseInt(selectedAchievement.index) == 3){
+		reduceNumber = 2
+	}
     
     var currentValue = parseInt(timeElement.innerHTML);
-    var total = currentValue - 2;
+    var total = currentValue - reduceNumber ;
     
      if(currentValue == 0){total = 0;} else if(currentValue == 1){total = 0}; 
     
@@ -403,14 +423,22 @@ function saveHighscore(){
     if (scoreStorage.current == scoreStorage.highest && scoreStorage.current !== 0){
         
         highscorePan = scoreStorage.highest + " <font color='red'>NEW!</font>";
+		
+		
 		//Achievemetns, should be refactored later on
-		if (scoreStorage.highest == 300 && achievementObject.unlocked[2] == false){
-			achievement_sparta(2);
+		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+		if (scoreStorage.highest >= 1 && achievementObject.unlocked[2] == false){
+			achievement_painter(2);
 		}
 		
-		if (scoreStorage.highest >= 50 && achievementObject.unlocked[1] == false){
-			achievement_painter(1);
+		if (scoreStorage.highest >= 1 && achievementObject.unlocked[3] == false){
+			achievement_astronaut(3);
 		}
+		
+		if (scoreStorage.highest == 1 && achievementObject.unlocked[4] == false){
+			achievement_sparta(4);
+		}
+		
     }
     else{
         

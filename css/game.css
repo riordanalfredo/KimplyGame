@@ -56,3 +56,16 @@
   
   width: 50px;
 }
+
+.wrong{
+	
+    -webkit-box-shadow: 1px 20px 56px -18px red;
+    -moz-box-shadow: 1px 20px 56px -18px red;
+    box-shadow: 1px 20px 56px -18px red);
+}
+.correct{
+
+    -webkit-box-shadow: 1px 20px 56px -18px lime;
+    -moz-box-shadow: 1px 20px 56px -18px lime;
+    box-shadow: 1px 20px 56px -18px lime);
+}

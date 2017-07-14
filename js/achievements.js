@@ -8,10 +8,11 @@
 	 date: [],
 	 bonus: [],
 	 description:[],
-	 unlocked: []
+	 unlocked: [],
+	 secret:[],
  }
  
- var number_of_achievements = 2;
+ var number_of_achievements = 4;
  
 var STORAGE_KEY_ACHIEVEMENTS = "achievements";
 var checkExist = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
@@ -32,11 +33,18 @@ function initializeAchievements(){
 				achievements.unlocked.push(false);
 				achievements.description.push("");
 			}
-
-
-			achievements.description[0] = "Reach score above 30 in easy mode";
-			achievements.description[1] = "Reach score above 50 in Normal mode";
-			achievements.description[2] = "Reach highscore exactly 300 in any mode";
+			
+			
+			achievements.description[0] = "Reach a score above 30 in Easy mode";
+			achievements.description[1] = "Reach a score above 50 in Easy mode"
+			achievements.description[2] = "Reach a score above 30 in Normal mode";
+			achievements.description[3] = "Reach a score above 50 in Normal mode";
+			achievements.description[4] = "Reach highscore exactly 300 in any mode";
+			
+			achievements.secret[1] = "Extra time 3 seconds";
+			achievements.secret[2] = "Bonus 3 Hidden Colours";
+			achievements.secret[3] = "Wrong answer reduce by 1";
+			achievements.secret[4] = "SECRET";
 
 			localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));
 		}
@@ -73,21 +81,20 @@ function initializeAchievements(){
 	 
  }
 
-
-
-function achievement_painter( index ){
+function achievement_time( index ){
 	  // Get local storage
 	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 	 
 	  // Fill the objects
-      achievementObject.name[index] = "The Maestro";
-	  achievementObject.logo[index] = "img/bonus/painter.png";
-	  achievementObject.title[index] = "Monsieur Kimply"
+      achievementObject.name[index] = "What year is it? It worked!";
+	  achievementObject.logo[index] = "img/bonus/future.png";
+	  achievementObject.title[index] = "Time Traveler Kimply"
 	  var d = new Date();
 	  var tanggal = d.toUTCString();
 	  achievementObject.date[index] = tanggal;
-	  achievementObject.bonus[index] = "img/maestro.png";
+	  achievementObject.bonus[index] = "img/future.png";
 	  achievementObject.unlocked[index] = true;
+	  
 	  
 	  
 	 // Store back to Local Storage
@@ -104,6 +111,64 @@ function achievement_painter( index ){
 }
 
 
+function achievement_painter( index ){
+	  // Get local storage
+	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+	 
+	  // Fill the objects
+      achievementObject.name[index] = "The Maestro";
+	  achievementObject.logo[index] = "img/bonus/painter.png";
+	  achievementObject.title[index] = "Monsieur Kimply"
+	  var d = new Date();
+	  var tanggal = d.toUTCString();
+	  achievementObject.date[index] = tanggal;
+	  achievementObject.bonus[index] = "img/maestro.png";
+	  achievementObject.unlocked[index] = true;
+	 
+	  
+	  
+	 // Store back to Local Storage
+	  var total = JSON.stringify(achievementObject);
+      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
+	
+	//Achievments notification
+	
+  var snackbarContainer = document.querySelector('#demo-toast-example');
+  var showToastButton = document.querySelector('#demo-show-toast');
+  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+	
+}
+
+function achievement_astronaut( index ){
+	  // Get local storage
+	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
+	 
+	 // Fill the objects
+      achievementObject.name[index] = "What is Gravity...??";
+	  achievementObject.logo[index] = "img/bonus/astronaut.png";
+	  achievementObject.title[index] = "Major Kimply"
+	  var d = new Date();
+	  var tanggal = d.toUTCString();
+	  achievementObject.date[index] = tanggal;
+	  achievementObject.bonus[index] = "img/astronaut.png";
+	  achievementObject.unlocked[index] = true;
+	  
+	  
+	 // Store back to Local Storage
+	  var total = JSON.stringify(achievementObject);
+      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
+	
+	//Achievments notification
+	
+  var snackbarContainer = document.querySelector('#demo-toast-example');
+  var showToastButton = document.querySelector('#demo-show-toast');
+  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+	
+	
+	
+}
  
  function achievement_sparta(index){
 	  
@@ -136,64 +201,10 @@ function achievement_painter( index ){
  }
 
 
-function achievement_knight( index ){
-	  // Get local storage
-	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-	 
-	  // Fill the objects
-      achievementObject.name[index] = "Balance";
-	  achievementObject.logo[index] = "img/bonus/painter.png";
-	  achievementObject.title[index] = "Monsieur Kimply"
-	  var d = new Date();
-	  var tanggal = d.toUTCString();
-	  achievementObject.date[index] = tanggal;
-	  achievementObject.bonus[index] = "img/maestro.png";
-	  achievementObject.unlocked[index] = true;
-	  
-	  
-	 // Store back to Local Storage
-	  var total = JSON.stringify(achievementObject);
-      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
-	
-	//Achievments notification
-	
-  var snackbarContainer = document.querySelector('#demo-toast-example');
-  var showToastButton = document.querySelector('#demo-show-toast');
-  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
-  snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	
-}
 
 
-function achievement_usa( index ){
-	  // Get local storage
-	  var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-	 
-	 // Fill the objects
-      achievementObject.name[index] = "FREEDOM is real!";
-	  achievementObject.logo[index] = "img/bonus/usa.png";
-	  achievementObject.title[index] = "Kimply William"
-	  var d = new Date();
-	  var tanggal = d.toUTCString();
-	  achievementObject.date[index] = tanggal;
-	  achievementObject.bonus[index] = "img/usa.png";
-	  achievementObject.unlocked[index] = true;
-	  
-	  
-	 // Store back to Local Storage
-	  var total = JSON.stringify(achievementObject);
-      localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
-	
-	//Achievments notification
-	
-  var snackbarContainer = document.querySelector('#demo-toast-example');
-  var showToastButton = document.querySelector('#demo-show-toast');
-  var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
-  snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	
-	
-	
-}
+
+
 
 
 

@@ -198,10 +198,20 @@ function randomChoices(){
 // -------------------------------------------------------------------------------------------------------------------------//
 // -------------------------------------------------- Timer CountDown ------------------------------------------------------//
 var TotalSeconds    = 7;
+
+
+//Achievements time delay
+if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
+	TotalSeconds += 3;
+}
+
+
+
 var timeElement = document.getElementById('time');
 timeElement.innerHTML = TotalSeconds;
 var anjay = 0;
 var amboy = 0;
+
 
 timeInterval();
 
@@ -211,8 +221,9 @@ function timeInterval(){
     
 }
 
-
 var documentWidth  = $(bar).width();
+
+
 function timerCountdown(){
     
     var currentValue = parseInt(timeElement.innerHTML);
@@ -245,6 +256,7 @@ function timerCountdown(){
     if (seconds > TotalSeconds){
         seconds = TotalSeconds;
     }
+	
     var progresBarWidth = (seconds * documentWidth / TotalSeconds);
 	
     $('#progress').animate({
@@ -274,7 +286,7 @@ var storage = [];
 
 function scoreCalculator(i){
     
-    
+    var state = "";
     storage.push(colorVault[colorVault.length - 1]);
     
     if ( i == "a")
@@ -287,17 +299,19 @@ function scoreCalculator(i){
     
     if (storage[0] !== storage[1])
     {
-        wrongAnswer();
+        state = wrongAnswer();
     }
         else if (storage[0] == storage[1] )
     {
-        correctAnswer();
+        state = correctAnswer();
     }
     storage = [];
     
     switchColor();
     $('#card').flip('toggle');
+	
     randomChoices();
+	
     
      if (parseInt(timeElement.innerHTML) <= 0){
             saveHighscore();
@@ -306,8 +320,15 @@ function scoreCalculator(i){
     }
 
 
+
+
 function correctAnswer(){
     
+	//Add indicator
+    var state = "correct";
+
+	
+	
     var currentValue = parseInt(timeElement.innerHTML);
     var total = currentValue + 1;
 
@@ -315,18 +336,34 @@ function correctAnswer(){
     
     score += 1;
     answer.innerHTML = score;
+   return state; 
     
 }
 
 function wrongAnswer(){
-        
-    
+	
+	//Add indicator
+    var state = "wrong";
+	
+	$('#card').addClass(state).delay(300).queue(function(){
+    $(this).removeClass(state).dequeue();
+    });
+	
     var currentValue = parseInt(timeElement.innerHTML);
-    var total = currentValue - 2;
+	
+	var reduceNumber = 2;
+	//Achievements time delay
+	if(checkExist.unlocked[3] == true && parseInt(selectedAchievement.index) == 3){
+		reduceNumber = 1
+	}
+	
+    var total = currentValue - reduceNumber;
     
     if(currentValue == 0){total = 0;} else if(currentValue == 1){total = 0}; 
     
     timeElement.innerHTML = total;
+	
+	return state;
     
 }
 
@@ -365,12 +402,15 @@ function saveHighscore(){
 		
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 		
-		if (scoreStorage.highest >= 30 && achievementObject.unlocked[0] == false){
+		if (scoreStorage.highest >= 1 && achievementObject.unlocked[0] == false){
 			achievement_japan(0);
 		}
+		if (scoreStorage.highest >= 1 && achievementObject.unlocked[1] == false){
+			achievement_time(1);
+		}
 		
-		if (scoreStorage.highest == 300 && achievementObject.unlocked[2] == false){
-			achievement_sparta(2);
+		if (scoreStorage.highest == 1 && achievementObject.unlocked[4] == false){
+			achievement_sparta(4);
 		}
 		
     }

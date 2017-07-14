@@ -49,7 +49,7 @@
                       <!-- Default Slider -->
                       
                       
-  					<input id="slide" class="mdl-slider mdl-js-slider" type="range" oninput="titleCard(this.value)" min="0" max="2" value="0">
+  					<input id="slide" class="mdl-slider mdl-js-slider" type="range" oninput="titleCard(this.value)" min="0" max="4" value="0">
 				
 				  
             <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
@@ -92,6 +92,7 @@
 		}
 		
 		document.getElementById("mid1").src = checkExist.bonus[index];
+		document.getElementById("award").innerHTML = checkExist.secret[index];
 		document.getElementById("description").innerHTML = checkExist.description[index];
 	}
 	
