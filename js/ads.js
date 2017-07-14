@@ -77,12 +77,8 @@
         
       // request an interstitial
       // admob.requestInterstitialAd();
-	  
-	  mute_audio(false);
-		
+	  		
     }	
-
-	initializeSkins();	
 		
     
     document.addEventListener("deviceready", onDeviceReady, false);	

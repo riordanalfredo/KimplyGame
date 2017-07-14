@@ -12,7 +12,8 @@
 
     var STORAGE_KEY_SONG = "mute";
 
-    function muting(condition){
+
+function muting(condition){
     
     var mute = JSON.parse(localStorage.getItem(STORAGE_KEY_SONG));
     mute.cond = condition;    

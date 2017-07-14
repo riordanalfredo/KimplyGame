@@ -11,6 +11,7 @@ function showPage() {
 var primeNumber = 12582917;
 
 var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","CHOCOLATE","INDIGO","CORNSILK","KHAKI","NAVY","TEAL","TURQUOISE","WHEAT","SNOW","AQUA","AZURE"]
+
 function colourVaults(sizeColor){
 	/*
 	Will return the colors array which depends on the number of it's needed

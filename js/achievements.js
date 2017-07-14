@@ -210,7 +210,8 @@ achievements_id.innerHTML = "<ul class='demo-list-three mdl-list'>" +calculate(o
 function calculate(object){
 	var total = "";
 	for(var i=0; i<= number_of_achievements;i++){
-		total += "<li class='mdl-list__item mdl-list__item--three-line'>"+
+		total += "<a style='text-decoration:none' href='skins.html'"+
+					"<li class='mdl-list__item mdl-list__item--three-line'>"+
 					"<span class='mdl-list__item-primary-content'>"+
 						  "<img id='achv1_img' src='" + object.logo[i] + "' class='material-icons mdl-list__item-avatar'>"+
 						  "<!--<img class='icon' id='icon0' src='../content/icon/1.png' class='list-avatar' />-->"+
@@ -221,6 +222,7 @@ function calculate(object){
 						  "</span>"+
 						"</span>"+
 					  "</li>"
+				+ "</a>"
 					  } ; 
 	return total
 }

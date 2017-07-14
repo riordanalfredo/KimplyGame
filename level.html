@@ -11,7 +11,7 @@
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="shortcut icon" sizes="196x196" href="img/kimply.png" />
         <link rel="apple-touch-icon-precomposed" href="img/kimply.png" />
-    
+    	<link rel="stylesheet" type="text/css" href="css/csshake.min.css">
         <link rel="stylesheet" href="css/home.css">
     </head>
     <body style="position:fixed">
@@ -19,7 +19,14 @@
         <div style="float:left;">
 
             <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
+			
+       		 <div style="float:right">
+            
+				<button id="muteButton" onclick= "toogleState(this)" class="mdl-button mdl-js-button mdl-js-ripple-effect on">
+					<div id = "bg"></div>
+				</button>
 
+        	</div>    
         </div>
         <br>
         <div align=center style="margin:auto;float:center">  
@@ -33,39 +40,37 @@
                 <img onclick="location.href = 'levels/hard.html'" src="img/hard.png" width=150px style="float:center;">
                 <br>  
                 <br> 
-                <button onclick="location.href = 'skins.html'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="width=450px;"> 
-                &nbsp;&nbsp;&nbsp;<i class="material-icons md-24">star</i>
+                <button onclick="location.href = 'skins.html'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width=450px;"> 
+                &nbsp;&nbsp;&nbsp;<i class="material-icons md-24">star</i> 
                 <b style="font-size:14px"> SKINS </b> &nbsp;&nbsp;&nbsp;
-                </button><br><br><br>
+                </button><br><br>
         </div>
         
 		</div>
         <hr>
-       <footer> Developed by &copy; Walf Redo</footer>   
+       <footer> Developed by &copy; Walf Redo</footer> 
+       
+         
+      <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+		<div class="mdl-snackbar__text"></div>
+		<button class="mdl-snackbar__action" type="button"></button>
+	  </div>
+	  <div id="audio"></div> 
+	   <audio id="music" src="bgmusic/a.mp3" autoplay loop width="2" height="0"> </audio >   
     </body>
-  
-     
+    
+<script type="text/javascript" src="js/mutegame.js"></script>   
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>     
 <script>
-
-var audio = new Audio('bgmusic/a.mp3');
-audio.play();
 	
-  
-var STORAGE_KEY_SONG = "mute";
+	
+var aud = document.getElementById("audio"); 
+var mus = document.getElementById("music");
+	
 
-var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
-    if (muteJSON)
-    {
-        var muteCond = JSON.parse(muteJSON);
-        if(muteCond.cond == true){
-            
-            audio.muted = true;   
-		}
-    }
-    else
-    {
-        localStorage.setItem(STORAGE_KEY_SONG, JSON.stringify(muteCondition));
-    }    
+
+
+	
 
     
 </script>

@@ -23,7 +23,10 @@
     </head>
     <body style="position:fixed">
         <div style="float:left;margin-top: 10px">
-            <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect "> <i class="material-icons">keyboard_backspace</i> </button>
+            <button onclick="window.history.go(-1); return false;" class="mdl-button mdl-js-button mdl-js-ripple-effect"> <i class="material-icons">keyboard_backspace</i></button>
+			<button id="muteButton" onclick= "toogleState(this)" class="mdl-button mdl-js-button mdl-js-ripple-effect on">
+				<div id = "bg"></div>
+			</button>            
         </div>
         <br><br>
         <div align=center style="margin:auto;float:center">  
@@ -31,7 +34,7 @@
             <hr> <h4><b>KIMPLY OUTFIT</b></h4>
             <hr>               
     
-                <div class="front" id="front" > <br> <br>
+                <div class="front" id="front" > <br> 
                     <img id="mid1" width=180px stlye="position:relative; margin-top:60px;">
                 </div> 
                 
@@ -39,30 +42,37 @@
                      
             <div align=center style="margin-left:50px; margin-right: 50px">
                       <b id="title_achievements" style="font-size:22px;color:goldenrod"></b>
-                      <br> <br>
+                      <br>	
+                      <i id="description"></i>
+                      <p id="award" style="color:deeppink">No fault penalty in game</p>
+                     	
                       <!-- Default Slider -->
                       
                       
-  						<input id="slide" class="mdl-slider mdl-js-slider" type="range" oninput="titleCard(this.value)" min="0" max="2" value="0">
+  					<input id="slide" class="mdl-slider mdl-js-slider" type="range" oninput="titleCard(this.value)" min="0" max="2" value="0">
 				
-					  
+				  
             <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
 				<div class="mdl-snackbar__text" style="text-align: center"></div>
 				<button class="mdl-snackbar__action" type="button"></button>
 			</div>                       
               
-            <i id="description"></i>
-            <br> <br>
-                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="selectSkin()">
+            <br>
+                <button id='submit' class="mdl-button mdl-js-button mdl-button--raised button" onclick="selectSkin()">
                    <b id="answer">wear</b>
                 </button>           
-        </div>
+           </div>
+        <audio id="music" src="bgmusic/a.mp3" autoplay loop width="2" height="0"> </audio >
+       
        <footer> Developed by &copy; Walf Redo</footer>   
     </body>
+    <div id="audio"></div>
+    
     
 <script src="cordova.js"></script>  
 <script src="js/achievements.js"></script>   
 <script src="js/skins.js"></script>  
+<script src="js/mutegame.js"></script>
 <script>
 	
 	
@@ -104,26 +114,6 @@
 
 	}
 	
-
-var audio = new Audio('bgmusic/a.mp3');
-audio.play();
-	
-  
-var STORAGE_KEY_SONG = "mute";
-
-var muteJSON = localStorage.getItem(STORAGE_KEY_SONG);
-    if (muteJSON)
-    {
-        var muteCond = JSON.parse(muteJSON);
-        if(muteCond.cond == true){
-            
-            audio.muted = true;   
-		}
-    }
-    else
-    {
-        localStorage.setItem(STORAGE_KEY_SONG, JSON.stringify(muteCondition));
-    }    
     
 </script>
     
