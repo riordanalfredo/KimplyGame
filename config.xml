@@ -44,7 +44,6 @@
 
     <!-- Plugins -->
     <gap:plugin name="phonegap-admob" source="npm"/>
-    <gap:plugin name="tappx-phonegap-build" source="npm"/>
     <!-- Core plugins 
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />
