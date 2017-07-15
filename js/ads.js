@@ -19,8 +19,10 @@
           interstitialAdId: admobid.interstitial,
           tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
           tappxIdAndroid:   "/120940746/Pub-20832-Android-3415",
-          tappxShare:       0.5,
+          tappxShare:       0.6,
+          adSize:           admob.AD_SIZE.BANNER,
 		  isTesting:        false,
+          
         });
 
         registerAdEvents();
