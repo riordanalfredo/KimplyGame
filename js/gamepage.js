@@ -15,7 +15,7 @@ var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "
 //Achievements time delay
 if(checkExist.unlocked[2] == true){
 	colorBrankas.push("OLIVE");
-    colorBrankas.push("FUCHSIA");
+    colorBrankas.push("MAGENTA");
     colorBrankas.push("AQUAMARINE");
 }
 
@@ -90,48 +90,48 @@ document.getElementById("mid2").src = "../" + checkExist.bonus[parseInt(selected
 
 function switchColor() {    
             
-            var randomColorIndex =  Math.round(Math.random() * primeNumber) % 5;
-        
-            index.push(randomColorIndex);
-            randomColorIndex = checkerFunction(randomColorIndex);
-            var randomColor = colors[randomColorIndex];
-    
-            var flipx = {
-              axis: 'x',
-            };
-            var flipy = {
-              axis: 'y',
-            };
-            var flipz = {
-              axis: '',
-            };
-            var fliprevx = {
-              flip: 'x',
-              reverse:true
-            };
-            var fliprevy= {
-              axis: 'y',
-              reverse:true    
-            };
-            var sequence = [flipx,flipy,flipz,fliprevx,fliprevy] ;
-    
-            
-            
-            $('#card').flip(sequence[randomCard]);
-                
-                if( frontBackSelector == 1){
-                    
-                    $('#front').css('background-color', randomColor)
-                    frontBackSelector += 1;
-                    
-                } else if(frontBackSelector !== 1){
-                    
-                    $('#back').css('background-color', randomColor)
-                    frontBackSelector -= 1;
-                }
-                
-            
-            colorVault.push(randomColor);
+        var randomColorIndex =  Math.round(Math.random() * primeNumber) % 5;
+
+        index.push(randomColorIndex);
+        randomColorIndex = checkerFunction(randomColorIndex);
+        var randomColor = colors[randomColorIndex];
+
+        var flipx = {
+          axis: 'x',
+        };
+        var flipy = {
+          axis: 'y',
+        };
+        var flipz = {
+          axis: '',
+        };
+        var fliprevx = {
+          flip: 'x',
+          reverse:true
+        };
+        var fliprevy= {
+          axis: 'y',
+          reverse:true    
+        };
+        var sequence = [flipx,flipy,flipz,fliprevx,fliprevy] ;
+
+
+
+        $('#card').flip(sequence[randomCard]);
+
+            if( frontBackSelector == 1){
+
+                $('#front').css('background-color', randomColor)
+                frontBackSelector += 1;
+
+            } else if(frontBackSelector !== 1){
+
+                $('#back').css('background-color', randomColor)
+                frontBackSelector -= 1;
+            }
+
+
+        colorVault.push(randomColor);
             
     }
 
@@ -178,28 +178,27 @@ function fadeout(){
     
 function randomChoices(){
     		
-	
-            answera.innerHTML = "";
-            answerb.innerHTML = "";
-            var random1 = Math.round(Math.random()*primeNumber) % 5;
-            var random2 = Math.round(Math.random()*primeNumber) % 5;
-        
-    
-            while(random1 == random2){
-                random2 = Math.round(Math.random()*primeNumber) % 5;
-            }    
-        
-    
-            if( colorVault[colorVault.length - 1] == colors[random1] | colorVault[colorVault.length - 1] == colors[random2]){
-                answera.innerHTML = colors[random1];
-                answerb.innerHTML = colors[random2];
-            } 
-	        else {
-                
-                   randomChoices();
-                
-            }
-              
+        answera.innerHTML = "";
+        answerb.innerHTML = "";
+        var random1 = Math.round(Math.random()*primeNumber) % 5;
+        var random2 = Math.round(Math.random()*primeNumber) % 5;
+
+
+        while(random1 == random2){
+            random2 = Math.round(Math.random()*primeNumber) % 5;
+        }    
+
+
+        if( colorVault[colorVault.length - 1] == colors[random1] | colorVault[colorVault.length - 1] == colors[random2]){
+            answera.innerHTML = colors[random1];
+            answerb.innerHTML = colors[random2];
+        } 
+        else {
+
+               randomChoices();
+
+        }
+
 }
 
 
@@ -208,7 +207,6 @@ function randomChoices(){
 // -------------------------------------------------- Timer CountDown ------------------------------------------------------//
 var TotalSeconds    = 7;
 
-
 //Achievements time delay
 if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
 	TotalSeconds += 3;
@@ -216,7 +214,6 @@ if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
     clockSymbol.innerHTML= "<i class='material-icons'>alarm_add</i> buff";
     
 }
-
 
 
 var timeElement = document.getElementById('time');
@@ -246,9 +243,7 @@ function timerCountdown(){
         
         var total = currentValue + 1;
     }
-    
     else{
-        
         var total = currentValue - 1;
     }
     
@@ -416,13 +411,19 @@ function saveHighscore(){
 		
 		if (scoreStorage.highest >= 30 && achievementObject.unlocked[0] == false){
 			achievement_japan(0);
+            selectedAchievement.index = 0;
+            localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 		}
 		if (scoreStorage.highest >= 50 && achievementObject.unlocked[1] == false){
 			achievement_time(1);
+            selectedAchievement.index = 1;
+            localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 		}
 		
 		if (scoreStorage.highest == 300 && achievementObject.unlocked[4] == false){
 			achievement_sparta(4);
+            selectedAchievement.index = 4;
+            localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 		}
 		
     }
@@ -443,11 +444,10 @@ function highscoreCondition(object){
     
      if (object.current > object.highest)
             {
-                object.highest = object.current;
+              object.highest = object.current;
             }
         else{
-            
-                object.current = object.current;
+              object.current = object.current;
         }    
 }
 
@@ -455,18 +455,13 @@ function highscoreCondition(object){
     if (scoreJSON)
     {
         var scoreStorage = JSON.parse(scoreJSON);
-        
         highscoreCondition(scoreStorage);
-        
         highscore.innerHTML = scoreStorage.highest;
     }
     else
     {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(highscoreObject));
     }
-
-    
-
 
 /*printing score and highscore*/
 

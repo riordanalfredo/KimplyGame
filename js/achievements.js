@@ -41,17 +41,14 @@ function initializeAchievements(){
 			achievements.description[3] = "Reach a score above 50 in Normal mode";
 			achievements.description[4] = "Reach highscore exactly 300 in any mode";
 			
-			achievements.secret[1] = "Extra time 3 seconds";
+			achievements.secret[1] = "Use this skin to gain Extra time 3 seconds";
 			achievements.secret[2] = "Bonus 3 Hidden Colours";
-			achievements.secret[3] = "Wrong answer penalty reduced by 1";
+			achievements.secret[3] = "Use this skin to reduced time penalty";
 			achievements.secret[4] = "SECRET";
 
 			localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, JSON.stringify(achievements));
 		}
 }
-
-
-
 
  
  function achievement_japan(index){
@@ -78,8 +75,9 @@ function initializeAchievements(){
   var showToastButton = document.querySelector('#demo-show-toast');
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]};
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	 
  }
+
+
 
 function achievement_time( index ){
 	  // Get local storage
@@ -107,7 +105,7 @@ function achievement_time( index ){
   var showToastButton = document.querySelector('#demo-show-toast');
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	
+    
 }
 
 
@@ -137,7 +135,6 @@ function achievement_painter( index ){
   var showToastButton = document.querySelector('#demo-show-toast');
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	
 }
 
 function achievement_astronaut( index ){
@@ -166,8 +163,6 @@ function achievement_astronaut( index ){
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]} ;
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
 	
-	
-	
 }
  
  function achievement_sparta(index){
@@ -186,7 +181,6 @@ function achievement_astronaut( index ){
 	  achievementObject.unlocked[index] = true;
 	  
 	  
-	  
 	 // Store back to Local Storage
 	  var total = JSON.stringify(achievementObject);
       localStorage.setItem(STORAGE_KEY_ACHIEVEMENTS, total);
@@ -195,8 +189,6 @@ function achievement_astronaut( index ){
   var showToastButton = document.querySelector('#demo-show-toast');
   var data = {message: 'UNLOCKED ACHIEVEMENT: '+ achievementObject.name[index]};
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
-	 
-	 
 	 
  }
 

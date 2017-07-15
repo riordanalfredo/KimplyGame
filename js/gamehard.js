@@ -16,7 +16,7 @@ var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "
 // Achievement painter
 if(checkExist.unlocked[2] == true){
 	colorBrankas.push("OLIVE");
-    colorBrankas.push("FUCHSIA");
+    colorBrankas.push("MAGENTA");
     colorBrankas.push("AQUAMARINE");
 }
 
@@ -439,14 +439,20 @@ function saveHighscore(){
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 		if (scoreStorage.highest >= 30 && achievementObject.unlocked[2] == false){
 			achievement_painter(2);
+            selectedAchievement.index = 2;
+            localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));            
 		}
 		
 		if (scoreStorage.highest >= 50 && achievementObject.unlocked[3] == false){
 			achievement_astronaut(3);
+            selectedAchievement.index = 3;
+            localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));            
 		}
 		
 		if (scoreStorage.highest == 300 && achievementObject.unlocked[4] == false){
 			achievement_sparta(4);
+            selectedAchievement.index = 4;
+            localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));            
 		}
 		
     }
