@@ -14,7 +14,7 @@ var colors = ["RED", "GREEN", "SALMON", "YELLOW","ORANGE","PINK","PURPLE","BROWN
 var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","CHOCOLATE","INDIGO","CORNSILK","KHAKI","NAVY","TEAL","TURQUOISE","WHEAT","SNOW","AQUA","AZURE"]
 
 // Achievement painter
-if(checkExist.unlocked[2] == true){
+if(checkExist.data[2].unlocked == true){
 	colorBrankas.push("OLIVE");
     colorBrankas.push("MAGENTA");
     colorBrankas.push("AQUAMARINE");
@@ -79,8 +79,13 @@ var answerd = document.getElementById("answerd");
 // To change the skin of the card
 var STORAGE_KEY_SKIN = "skins";
 var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
-document.getElementById("mid1").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
-document.getElementById("mid2").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
+
+var logoDisplay = "backg.png";
+if(checkExist.data[parseInt(selectedAchievement.index)].unlocked == true){
+    logoDisplay = checkExist.data[parseInt(selectedAchievement.index)].logo;
+}
+document.getElementById("mid1").src = "../img/achievements/" + logoDisplay;
+document.getElementById("mid2").src = "../img/achievements/" + logoDisplay; 
 
 
 var frontBackSelector = 1;
@@ -238,10 +243,10 @@ function randomChoices(){
 // -------------------------------------------------- Timer CountDown ------------------------------------------------------//
 var TotalSeconds    = 12;
 //Achievement time walker
-if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
+if(checkExist.data[1].unlocked == true && parseInt(selectedAchievement.index) == 1){
 	TotalSeconds += 3;
     var clockSymbol = document.getElementById("clock")
-    clockSymbol.innerHTML= "<i class='material-icons'>alarm_add</i>";
+    clockSymbol.innerHTML= "<i class='material-icons'>alarm_add</i> buff";
 }
 
 
@@ -391,7 +396,7 @@ function wrongAnswer(){
 	//Achievements time delay
 	var reduceNumber = 2;
 	
-	if(checkExist.unlocked[3] == true && parseInt(selectedAchievement.index) == 3){
+	if(checkExist.data[3].unlocked== true && parseInt(selectedAchievement.index) == 3){
 		reduceNumber = 2
 	}
     
@@ -437,20 +442,20 @@ function saveHighscore(){
 		
 		//Achievemetns, should be refactored later on
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-		if (scoreStorage.highest >= 30 && achievementObject.unlocked[2] == false){
-			achievement_painter(2);
+		if (scoreStorage.highest >= 1 && achievementObject.data[2].unlocked == false){
+			achievementCallee(2);
             selectedAchievement.index = 2;
             localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));            
 		}
 		
-		if (scoreStorage.highest >= 50 && achievementObject.unlocked[3] == false){
-			achievement_astronaut(3);
+		if (scoreStorage.highest >= 1 && achievementObject.data[3].unlocked == false){
+			achievementCallee(3);
             selectedAchievement.index = 3;
             localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));            
 		}
 		
-		if (scoreStorage.highest == 300 && achievementObject.unlocked[4] == false){
-			achievement_sparta(4);
+		if (scoreStorage.highest == 1 && achievementObject.data[4].unlocked == false){
+			achievementCallee(4);
             selectedAchievement.index = 4;
             localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));            
 		}

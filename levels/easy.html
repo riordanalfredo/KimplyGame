@@ -23,7 +23,7 @@
     </head>
     
 <div id="preloader"></div>    
- <body>
+ <body style="background-color:white">
      
         <div style="float:left;margin-top:10px">
             <button id="myBtn" class="mdl-button mdl-js-button mdl-js-ripple-effect" > 
@@ -35,16 +35,12 @@
         <button id="muteButton" onclick= "toogleState(this)" class="mdl-button mdl-js-button mdl-js-ripple-effect on">
                 <div id = "bg"></div>
             </button> 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            
         <button id="buff" class="mdl-button mdl-js-button mdl-js-ripple-effect on"> 
             <div id = "clock"></div></button>
         </div>   
         
         
-        
-            
             <!-- The Modal -->
         <div id="myModal" class="modal">
 
@@ -108,13 +104,13 @@
             <div align=center style="margin:auto">  
             <!-- Accent-colored raised button with ripple -->
                 <div style="float:center;">          
-                <button id='buttona' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="PlaySound(); scoreCalculator('a');">
+                <button style="background-color: white;" id='buttona' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="PlaySound(); scoreCalculator('a');">
                    <b id="answera"></b>
                 </button>
                     
                     &nbsp; &nbsp; &nbsp; &nbsp; 
                     
-                <button id='buttonb' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="PlaySound();scoreCalculator('b');">
+                <button style="background-color: white;" id='buttonb' class="mdl-button mdl-js-button mdl-button--raised button answer" onclick="PlaySound();scoreCalculator('b');">
                    <b id="answerb"></b> 
                 </button>
                 </div>
@@ -179,9 +175,10 @@
                     sound.play();
                 }
             </script>
-             
-            <script type="text/javascript" src="../js/ads.js"></script>
-            <script type="text/javascript" src="../js/achievements.js"></script>   
+                    
+            <script src="../cordova.js"></script>   
+            <script type="text/javascript" src="../js/ads_game.js"></script>
+            <script type="text/javascript" src="../js/achievements_beta.js"></script>   
             <script type="text/javascript" src="../js/mutegame.js"></script>        
             <script type="text/javascript" src="../js/gamepage.js"></script>
             <script type="text/javascript" src="../js/alert.js"></script>

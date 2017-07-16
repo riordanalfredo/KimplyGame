@@ -3,11 +3,11 @@
       if (admob) {
         var adPublisherIds = {
           ios : {
-            banner : "ca-app-pub-7538563445332968/2786958330",
+            banner : "ca-app-pub-7538563445332968/5776803936",
             interstitial : "ca-app-pub-7538563445332968/4534389938"
           },
           android : {
-            banner : "ca-app-pub-7538563445332968/2786958330",
+            banner : "ca-app-pub-7538563445332968/5776803936",
             interstitial : "ca-app-pub-7538563445332968/4534389938"
           }
         };
@@ -20,6 +20,7 @@
           tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
           tappxIdAndroid:   "/120940746/Pub-20832-Android-3415",
           tappxShare:       0.5,
+          adSize:           admob.AD_SIZE.BANNER,
 		  isTesting:        false,
           
         });

@@ -13,7 +13,7 @@ var primeNumber = 12582917;
 var colorBrankas = ["RED","MAROON","LIME", "GREEN", "BLUE", "YELLOW","PURPLE", "SALMON", "ORANGE","PINK","CHOCOLATE","INDIGO","CORNSILK","KHAKI","NAVY","TEAL","TURQUOISE","WHEAT","SNOW","AQUA","AZURE"]
 
 //Achievements time delay
-if(checkExist.unlocked[2] == true){
+if(checkExist.data[2].unlocked == true){
 	colorBrankas.push("OLIVE");
     colorBrankas.push("MAGENTA");
     colorBrankas.push("AQUAMARINE");
@@ -84,9 +84,13 @@ var randomCard = Math.round(Math.random() * primeNumber) % 5;
 // To change the skin of the card
 var STORAGE_KEY_SKIN = "skins";
 var selectedAchievement = JSON.parse(localStorage.getItem(STORAGE_KEY_SKIN));
-document.getElementById("mid1").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
-document.getElementById("mid2").src = "../" + checkExist.bonus[parseInt(selectedAchievement.index)];
+var logoDisplay = "backg.png";
 
+if(checkExist.data[parseInt(selectedAchievement.index)].unlocked == true){
+    logoDisplay = checkExist.data[parseInt(selectedAchievement.index)].logo;
+}
+document.getElementById("mid1").src = "../img/achievements/" + logoDisplay;
+document.getElementById("mid2").src = "../img/achievements/" + logoDisplay; 
 
 function switchColor() {    
             
@@ -208,7 +212,7 @@ function randomChoices(){
 var TotalSeconds    = 7;
 
 //Achievements time delay
-if(checkExist.unlocked[1] == true && parseInt(selectedAchievement.index) == 1){
+if(checkExist.data[1].unlocked == true && parseInt(selectedAchievement.index) == 1){
 	TotalSeconds += 3;
     var clockSymbol = document.getElementById("clock")
     clockSymbol.innerHTML= "<i class='material-icons'>alarm_add</i> buff";
@@ -360,7 +364,7 @@ function wrongAnswer(){
 	
 	var reduceNumber = 2;
 	//Achievements time delay
-	if(checkExist.unlocked[3] == true && parseInt(selectedAchievement.index) == 3){
+	if(checkExist.data[3].unlocked == true && parseInt(selectedAchievement.index) == 3){
 		reduceNumber = 1
 	}
 	
@@ -409,19 +413,19 @@ function saveHighscore(){
 		
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
 		
-		if (scoreStorage.highest >= 30 && achievementObject.unlocked[0] == false){
-			achievement_japan(0);
+		if (scoreStorage.highest >= 30 && achievementObject.data[0].unlocked == false){
+			achievementCallee(0);
             selectedAchievement.index = 0;
             localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 		}
-		if (scoreStorage.highest >= 50 && achievementObject.unlocked[1] == false){
-			achievement_time(1);
+		if (scoreStorage.highest >= 50 && achievementObject.data[1].unlocked == false){
+			achievementCallee(1);
             selectedAchievement.index = 1;
             localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 		}
 		
-		if (scoreStorage.highest == 300 && achievementObject.unlocked[4] == false){
-			achievement_sparta(4);
+		if (scoreStorage.highest == 300 && achievementObject.data[4].unlocked == false){
+			achievementCallee(4);
             selectedAchievement.index = 4;
             localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
 		}

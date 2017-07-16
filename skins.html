@@ -70,7 +70,7 @@
     
     
 <script src="cordova.js"></script>  
-<script src="js/achievements.js"></script>   
+<script src="js/achievements_beta.js"></script>   
 <script src="js/skins.js"></script> <!--removing interestrial ads--> 
 <script src="js/mutegame.js"></script>
 <script>
@@ -84,16 +84,19 @@
 		document.getElementById("slide").value = index;
 		
 		var achievementObject = JSON.parse(localStorage.getItem(STORAGE_KEY_ACHIEVEMENTS));
-
+        var logoDisplay = checkExist.data[index].logo
 		var title = document.getElementById("title_achievements")
-		title.innerHTML = achievementObject.title[index];
-		if(achievementObject.unlocked[index] == false){
+		title.innerHTML = checkExist.data[index].title;
+        
+		if(achievementObject.data[index].unlocked == false){
+            title.innerHTML = "Default";
 			title.innerHTML += " (LOCKED)";
+            logoDisplay = "backg.png";
 		}
 		
-		document.getElementById("mid1").src = checkExist.bonus[index];
-		document.getElementById("award").innerHTML = checkExist.secret[index];
-		document.getElementById("description").innerHTML = checkExist.description[index];
+		document.getElementById("mid1").src = "img/achievements/" + logoDisplay;
+		document.getElementById("award").innerHTML = checkExist.data[index].secret;
+		document.getElementById("description").innerHTML = checkExist.data[index].description;
         
         selectedAchievement.index = index;
         localStorage.setItem(STORAGE_KEY_SKIN, JSON.stringify(selectedAchievement));
@@ -113,7 +116,7 @@
 		
 		     var snackbarContainer = document.querySelector('#demo-toast-example');
 			  var showToastButton = document.querySelector('#demo-show-toast');
-			  var data = {message: 'Wearing ' + checkExist.title[skinIndex]};
+			  var data = {message: 'Wearing ' + checkExist.data[skinIndex].title};
 			  snackbarContainer.MaterialSnackbar.showSnackbar(data);
 
 	}
