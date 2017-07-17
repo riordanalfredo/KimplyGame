@@ -44,6 +44,8 @@
 
     <!-- Plugins -->
     <gap:plugin name="phonegap-admob" source="npm"/>
+    
+    <plugin name="cordova-plugin-firebase" spec="0.1.22" />
     <!-- Core plugins 
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />

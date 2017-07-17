@@ -34,7 +34,7 @@
       if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
         	showNextInterstitial = setTimeout(function() {
           	    admob.requestInterstitialAd();
-        	}, 15 * 60 * 1000); // 30 minutes
+        	}, 15 * 60 * 1000); // 15 minutes
       }
     }
 
@@ -62,7 +62,7 @@
       // request an interstitial
 	  setTimeout(function() {
           	    admob.requestInterstitialAd();
-        	}, 1000 * 20); // 20 seconds delay
+        	}, 1000 * 15); // 15 seconds delay
 	  	
     }
 
