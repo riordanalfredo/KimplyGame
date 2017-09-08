@@ -24,7 +24,7 @@
           adSize:           'CUSTOM',
           width: 360,
           height: 90,
-          position: AdMob.AD_POSITION.BOTTOM_CENTER,
+          position: admobid.AD_POSITION.BOTTOM_CENTER,
 	      x: 0,		// valid when set position to POS_XY
 	      y: 0,		// valid when set position to POS_XY
           
