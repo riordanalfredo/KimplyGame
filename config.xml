@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.kimplycolor.game"
-        version   = "1.0.4">
+        version   = "1.1.5">
 
     <name>Kimply: Color Game</name>
 
@@ -44,8 +44,12 @@
 
     <!-- Plugins -->
     <gap:plugin name="phonegap-admob" source="npm"/>
+    <gap:plugin name="cc.fovea.cordova.purchase" source="npm" version="6.0.0">
+   <param name="BILLING_KEY" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjK9UIpaXQw64rpACqNsiaDAcUkA+wPRfwkJPhrF6f5GedEtO1wE7ZcwOGp/QTqZWRGPeF1o94dGa4Hm2gopzntr03RY1xZ6z2c9poTNPQWTn0Cg5PHLhAB1ngFHQ84/vRkny2rujejSzY7/0N14SST3iGno9HWz1ZkhbWd5oT2IB1idVc2vpWYHkDoHCkVTslSBivjMNC29LUj5IwjaBlfWdJuk/TU3tJw9FSQ+vEeCLFiop46cm7gJf52QUnchWtJD4+qc1t3V8dI7abcA/g3jfyH3SV0fiHFO89FOD3g6clzAfXKpf4PTXTqfycdIhZfIddMfRB0uFKo+fyLiY4wIDAQAB"/>
+</gap:plugin>
     
     <plugin name="cordova-plugin-firebase" spec="0.1.22" />
+    
     <!-- Core plugins 
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />

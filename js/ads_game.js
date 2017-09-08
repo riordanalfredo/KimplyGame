@@ -20,8 +20,13 @@
           tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
           tappxIdAndroid:   "/120940746/Pub-20832-Android-3415",
           tappxShare:       0.5,
-          adSize:           admob.AD_SIZE.BANNER,
 		  isTesting:        false,
+          adSize:           'CUSTOM',
+          width: 360,
+          height: 90,
+          position: AdMob.AD_POSITION.BOTTOM_CENTER,
+	      x: 0,		// valid when set position to POS_XY
+	      y: 0,		// valid when set position to POS_XY
           
         });
 

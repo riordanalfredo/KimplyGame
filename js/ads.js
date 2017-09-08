@@ -21,6 +21,8 @@
           tappxIdAndroid:   "/120940746/Pub-20832-Android-3415",
           tappxShare:       0.5,
 		  isTesting:        false,
+          adSize : admob.AD_SIZE.BANNER 
+          
           
         });
 
