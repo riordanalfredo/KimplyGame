@@ -22,8 +22,8 @@
           tappxShare:       0.5,
 		  isTesting:        false,
           adSize:           'CUSTOM',
-          width: 360,
-          height: 90,
+          width: 320,
+          height: 50,
           position: admobid.AD_POSITION.BOTTOM_CENTER,
 	      x: 0,		// valid when set position to POS_XY
 	      y: 0,		// valid when set position to POS_XY
